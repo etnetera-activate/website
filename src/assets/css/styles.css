@@ -1,0 +1,147 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.f-right {
+    float: right;
+}
+.f-left {
+    float: left;
+}
+.ta-center {
+    text-align: center;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.font-caveat {
+    font-family: 'Caveat', cursive;
+}
+.menu-comment {
+    font-family: 'Caveat', cursive;
+    color: #bbbbbb;
+    text-decoration: none;
+    display: block;
+}
+
+.comment {
+    font-family: 'Caveat', cursive;
+    color: #bbbbbb;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin-left: -10px;
+    margin-top: 20px;
+    transform-origin: 0 0;
+    transform: rotate(-3deg);
+    position: relative;
+}
+.comment.red-arrow-down:after {
+    content: '';
+    display: inline-block;
+    background: url("../imgs/arrow-red-down.png");
+    width: 43px;
+    height: 52px;
+    position: absolute;
+    top: 20px;
+    right: -53px;
+}
+a:hover .comment {
+    text-decoration-color: #a9204d;
+}
+
+a:link, a:visited {
+    color: #00a0e0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #009fe3;
+    text-decoration: underline;
+}
+
+.icon {
+    display: inline-block;
+    margin: 5px 5px 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.icon-arrow-red-right {
+    background: url("../imgs/arrow-red-right.png");
+    width: 30px;
+    height: 20px;
+}
+
+.icon-arrow-blue-right {
+    background: url("../imgs/arrow-blue-right.png");
+    width: 29px;
+    height: 20px;
+}
+
+/* header */
+
+.page-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 150px;
+    align-items: end;
+    width: 1200px;
+    margin: 0 auto;
+    height: 150px;
+}
+
+.logo-btn {
+    width: auto;
+    height: 80px;
+
+}
+.logo-btn img {
+    height: 80px;
+}
+.page-header ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    align-self: end;
+    justify-self: end;
+}
+
+.page-header ul li {
+    display: inline-block;
+    width: 180px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+/* main content */
+.main-content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+h1 {
+    color: #3f51b5;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.main-claim {
+    margin: 20px;
+}
+.main-claim .comment {
+    margin-top: 100px;
+}
+.main-claim p {
+    color: #bbbbbb;
+    font-size: 20px;
+    line-height: 30px;
+}

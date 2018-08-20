@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+<nav class="page-header">
+    <a href="<%= site.basePath %>/" class="logo-btn"><img src="<%= site.basePath %>/assets/imgs/logo.png" /></a>
+    <ul>
+        <li><a href="<%= site.basePath %>/my" class="btn">My <span class="menu-comment">[ activate ]</span></a></li>
+        <li><a href="<%= site.basePath %>/ty" class="btn">Ty <span class="menu-comment">[ klient & kolega ]</span></a></li>
+        <li><a href="<%= site.basePath %>/jak-a-kde" class="btn">Jak & Kde <span class="menu-comment">[ nás potkat ]</span></a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <%- body %>
+
+    <footer class="site-footer">
+    </footer>
+</div>
+</body>
+</html>
