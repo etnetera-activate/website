@@ -11,16 +11,16 @@ const srcPath = './src';
 const distPath = config.build.outputPath;
 
 
-
-chokidar.watch(`${srcPath}`, {ignored: /(^|[\/\\])\../}).on('all', (event, path) => {
+console.log("&Activate");
+chokidar.watch(`${srcPath}`, {ignored: /(^|[\/\\])\.\./}).on('all', (event, path) => {
 	console.log(event, path);
-
 	build();
 
 });
 
 const build = function(){
 
+	console.log("Build started")
 	// clear destination folder
 	fse.emptyDirSync(distPath);
 
@@ -79,5 +79,4 @@ const build = function(){
 
 
 }
-
 
