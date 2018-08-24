@@ -17,8 +17,14 @@ title:
 
     </ul>
 </section>
-<section>
+
+<section id="reference-app">
     <span class="comment">[ Reference ]</span>
+    <ul>
+        <div v-for="ref in references">
+            <img :src="ref.logo" height="70px">{{ref.title}}
+        </div>
+    </ul>
 </section>
 
 
