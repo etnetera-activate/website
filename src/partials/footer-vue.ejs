@@ -1,0 +1,28 @@
+<script>
+  var config = {
+    apiKey: "AIzaSyDBi1nrdZDnKdQZVG-et2IdKHtUlhOU-FU",
+    authDomain: "activate-website-2.firebaseapp.com",
+    databaseURL: "https://activate-website-2.firebaseio.com/",
+    storageBucket: "bucket.appspot.com"
+  };
+  firebase.initializeApp(config);
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      loaded: false,
+      references: undefined
+    },
+    mounted: function () {
+      this.$nextTick(function () {
+        firebase.database().ref('/content').once('value').then(
+          snapshot => {
+            data = snapshot.exportVal();
+            console.log("[Web content loaded]");
+            this.references = data.references;
+          });
+      })
+    }
+
+  })
+</script>

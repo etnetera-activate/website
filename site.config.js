@@ -1,6 +1,5 @@
 const data = require('./src/data/data');
 
-
 module.exports = {
 	site: {
 		title: 'Activate',
