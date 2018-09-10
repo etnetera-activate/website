@@ -1,4 +1,6 @@
-.idea
 .vscode
+.editorconfig
+.idea
+.DS_Store
 public/
 node_modules/

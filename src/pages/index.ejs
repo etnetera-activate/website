@@ -1,30 +1,36 @@
 ---
 title:
 ---
-<section class="main-claim clearfix">
-    <img class="f-right" src="<%= site.basePath %>/assets/imgs/tablet.png" />
-    <span class="comment">[ Co děláme? ]</span>
-    <h1>Přivádíme inovace k životu</h1>
+<div class="row">
+    <section class="main-claim clearfix col-sm">
+        <span class="comment">[ Co děláme? ]</span>
+        <h1>Přivádíme inovace k životu</h1>
 
-    <p>Vaše data <i class="icon icon-arrow-red-right"></i> naše nápady  <i class="icon icon-arrow-blue-right"></i>  nový businese</p>
-</section>
-<section>
-    <span class="comment red-arrow-down">[ Technologie, které používáme ]</span>
-    <ul>
-        <% site.data.peoples.forEach(function (people) { %>
-        <li><%= people.name %></li>
-        <% }); %>
+        <p>Vaše data <i class="icon icon-arrow-red-right"></i> naše nápady  <i class="icon icon-arrow-blue-right"></i>  nový businese</p>
+    </section>
+    <img class="col-sm" src="<%= site.basePath %>/assets/imgs/tablet.png" />
+</div>
+<div class="row">
+    <section>
+        <span class="comment red-arrow-down">[ Technologie, které používáme ]</span>
+        <ul>
+            <% site.data.peoples.forEach(function (people) { %>
+            <li><%= people.name %></li>
+            <% }); %>
 
-    </ul>
-</section>
+        </ul>
+    </section>
+</div>
+<div class="row">
+    <section id="reference-app">
+        <span class="comment">[ Reference ]</span>
+        <ul>
+            <div v-for="ref in references">
+                <img :src="ref.logo" height="70px">{{ref.title}}
+            </div>
+        </ul>
+    </section>
+</div>
 
-<section id="reference-app">
-    <span class="comment">[ Reference ]</span>
-    <ul>
-        <div v-for="ref in references">
-            <img :src="ref.logo" height="70px">{{ref.title}}
-        </div>
-    </ul>
-</section>
 
 

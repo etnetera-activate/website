@@ -1,28 +1,48 @@
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 <script>
-  var config = {
-    apiKey: "AIzaSyDBi1nrdZDnKdQZVG-et2IdKHtUlhOU-FU",
-    authDomain: "activate-website-2.firebaseapp.com",
-    databaseURL: "https://activate-website-2.firebaseio.com/",
-    storageBucket: "bucket.appspot.com"
-  };
-  firebase.initializeApp(config);
+	$(document).on("scroll", function() {
 
-  var app = new Vue({
-    el: '#app',
-    data: {
-      loaded: false,
-      references: undefined
-    },
-    mounted: function () {
-      this.$nextTick(function () {
-        firebase.database().ref('/content').once('value').then(
-          snapshot => {
-            data = snapshot.exportVal();
-            console.log("[Web content loaded]");
-            this.references = data.references;
-          });
-      })
-    }
+		if($(document).scrollTop()>100) {
+			$("nav").removeClass("large").addClass("small");
+		} else {
+			$("nav").removeClass("small").addClass("large");
+		}
 
-  })
+	});
+
+	var config = {
+		apiKey: "AIzaSyDBi1nrdZDnKdQZVG-et2IdKHtUlhOU-FU",
+		authDomain: "activate-website-2.firebaseapp.com",
+		databaseURL: "https://activate-website-2.firebaseio.com/",
+		storageBucket: "bucket.appspot.com"
+	};
+	firebase.initializeApp(config);
+
+	var app = new Vue({
+		el: '#app',
+		data: {
+			loaded: false,
+			references: undefined
+		},
+		mounted: function () {
+			this.$nextTick(function () {
+				firebase.database().ref('/content').once('value').then(
+					snapshot => {
+						data = snapshot.exportVal();
+						console.log("[Web content loaded]");
+						this.references = data.references;
+					});
+			})
+		}
+
+	})
 </script>

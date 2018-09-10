@@ -6,26 +6,34 @@ const frontMatter = require('front-matter');
 const glob = require('glob');
 const config = require('../site.config');
 const chokidar = require('chokidar');
-
+let pocet = 0;
 const srcPath = './src';
 const distPath = config.build.outputPath;
 
-
-console.log("&Activate");
 chokidar.watch(`${srcPath}`, {ignored: /(^|[\/\\])\.\./}).on('all', (event, path) => {
 	console.log(event, path);
-	build();
+	const re = new RegExp("^(.(.*\\.html|.*\\.md|.*\\.ejs))*$");
+
+
+	if (re.test(path)) {
+		build();
+	} else {
+		fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
+	}
+
+	//build();
 
 });
 
 const build = function(){
-
+	pocet++;
+	console.log(pocet);
 	console.log("Build started")
 	// clear destination folder
-	fse.emptyDirSync(distPath);
+
 
 	// copy assets folder
-	fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
+	//fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
 
 	// read pages
 	const files = glob.sync('**/*.@(md|ejs|html)', { cwd: `${srcPath}/pages` });

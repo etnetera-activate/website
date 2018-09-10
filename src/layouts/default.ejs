@@ -4,24 +4,32 @@
     <%- include('../partials/head') %>
 </head>
 <body>
-<nav class="page-header">
-    <a href="<%= site.basePath %>/" class="logo-btn"><img src="<%= site.basePath %>/assets/imgs/logo.png" /></a>
-    <ul>
-        <li><a href="<%= site.basePath %>/my" class="btn">My <span class="menu-comment">[ activate ]</span></a></li>
-        <li><a href="<%= site.basePath %>/ty" class="btn">Ty <span class="menu-comment">[ klient & kolega ]</span></a></li>
-        <li><a href="<%= site.basePath %>/jak-a-kde" class="btn">Jak & Kde <span class="menu-comment">[ nás potkat ]</span></a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light page-header fixed-top large">
+    <div class="container">
+        <a class="navbar-brand logo-btn" href="<%= site.basePath %>/"><img src="<%= site.basePath %>/assets/imgs/logo.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="<%= site.basePath %>/my" class="nav-link">My <span class="menu-comment">[ activate ]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="<%= site.basePath %>/ty" class="nav-link">Ty <span class="menu-comment">[ klient & kolega ]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="<%= site.basePath %>/jak-a-kde" class="nav-link">Jak & Kde <span class="menu-comment">[ nás potkat ]</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-<div class="main-content" id="app">
+<div class="main-content container" id="app">
     <%- body %>
 
-    <footer class="site-footer">
-        <div>
-            <span class="comment">[ Tady nás najdeš ]</span>
-            <address></address>
-        </div>
-    </footer>
+    <%- include('../partials/footer') %>
 </div>
 <%- include('../partials/footer-vue') %>
 </body>
