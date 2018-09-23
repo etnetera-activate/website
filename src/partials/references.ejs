@@ -1,0 +1,8 @@
+<section class="row">
+    <div v-for="reference in references" class="col-md-6 reference">
+        <div class="row">
+            <img :src="'/assets/references/' + reference.imgName + '.png'" class="col-4"/>
+            <span class="col-8 align-self-center">{{reference.title}}</span>
+        </div>
+    </div>
+</section>

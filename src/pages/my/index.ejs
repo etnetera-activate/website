@@ -1,0 +1,17 @@
+---
+title: My
+---
+<h1 class="ml-5">Všechno tohle dohromady dává smysl!</h1>
+<%- include('../../partials/our-services') %>
+
+<h2 class="ml-5">Lidé a jejich příběhy</h2>
+<div class="row gallery">
+    <img src="<%= site.basePath %>/assets/imgs/peoples.jpg" class="col" />
+    <div class="overlay col">
+        <span v-for="(member, index) in peoples" :class="'name-'+ index">
+        {{member.name}} {{member.lastname}}
+    </span>
+    </div>
+</div>
+
+<%- include('../../partials/technologies') %>

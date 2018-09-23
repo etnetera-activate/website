@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #777777;
     margin-bottom: 50px;
-    margin-top: 180px;
+    margin-top: 200px;
 }
 * {
     -webkit-font-smoothing: antialiased;
@@ -15,9 +15,17 @@ h1 {
 }
 h2 {
     color: #00a0e0;
+    font-size: 37px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+h3 {
+    color: #00a0e0;
     font-size: 30px;
     margin-bottom: 15px;
+    font-weight: 500;
 }
+
 .f-right {
     float: right;
 }
@@ -68,8 +76,12 @@ h2 {
     top: 20px;
     right: -53px;
 }
+.comment-right {
+    margin: 20px 0 20px 150px;
+    transform: rotate(5deg);
+}
 
-a:link, a:visited {
+a {
     color: #00a0e0;
     text-decoration: underline;
 }
@@ -80,6 +92,34 @@ a:hover {
 }
 .navbar a:link, .navbar a:visited {
     text-decoration: none;
+}
+
+.list-bullets {
+    list-style: none;
+}
+.list-bullets li:before {
+    content: "• ";
+    color: #009fe3;
+}
+
+.btn-activate {
+    background: #2196f3; /* Old browsers */
+    border: 1px solid #2196f3;
+    line-height: 48px;
+    color: #ffffff;
+    padding: 0 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: .7s all;
+    -moz-transition: .7s all;
+    -webkit-transition: .7s all;
+    -o-transition: .7s all;
+}
+.btn-activate:hover {
+    background: #fff;
+    color: #2196f3;
+    border: 1px solid #2196f3;
 }
 
 .icon {
@@ -106,6 +146,11 @@ a:hover {
     backdrop-filter: saturate(180%) blur(20px);
     background-color: rgba(255,255,255,0.7);
     height: 96px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    transition: .7s all;
+    -moz-transition: .7s all;
+    -webkit-transition: .7s all;
+    -o-transition: .7s all;
 }
 .navbar.large {
     height: 180px;
@@ -114,11 +159,8 @@ a:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
-    transition: .7s all;
-    -moz-transition: .7s all;
-    -webkit-transition: .7s all;
-    -o-transition: .7s all;
+.navbar.small .logo-btn img {
+    height: 70px;
 }
 
 .logo-btn {
@@ -128,6 +170,10 @@ a:hover {
 }
 .logo-btn img {
     height: 80px;
+    transition: .7s all;
+    -moz-transition: .7s all;
+    -webkit-transition: .7s all;
+    -o-transition: .7s all;
 }
 .navbar li {
     text-align: center;
@@ -215,7 +261,6 @@ a.big-blue-box {
     font-family: 'Caveat', cursive;
     font-size: 50px;
     line-height: 300px;
-
 }
 a.big-blue-box.first {
     background: #2196f3; /* Old browsers */
@@ -223,6 +268,7 @@ a.big-blue-box.first {
     background: -webkit-linear-gradient(-45deg, #2196f3 0%,#3f51b5 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, #2196f3 0%,#3f51b5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#3f51b5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 a.big-blue-box.second {
     background: #3f51b5; /* Old browsers */
@@ -251,7 +297,7 @@ a.big-blue-box.second:hover {
 
 .site-footer:before {
     content: '';
-    background: url("../imgs/devider.png");
+    background: url("../imgs/separator.png");
     display: block;
     width: 100%;
     height: 7px;
@@ -266,11 +312,198 @@ a.big-blue-box.second:hover {
     margin-bottom: 40px;
     padding-top: 30px;
 }
+.col.social-icon img {
+    max-height: 90px;
+    max-width: 90px;
+}
 address {
     font-style: normal;
 }
-.site-footer div {
-    padding-left: 30px;
+.technologies {
+    font-size: 21px;
+    text-align: center;
+}
+.knowledge img {
+    float: left;
+    width: auto;
+    height: 50px;
+    margin-right: 5px;
+}
+.knowledge {
+    text-align: center;
+}
+
+/* Crossroads */
+.crossroads {
+    border-top: 1px solid #f5f5f5;
+    border-left: 1px solid #f5f5f5;
+    margin: 30px 50px;
+    cursor: pointer;
+}
+.crossroads a {
+    color: #888888;
+    text-decoration: none;
+}
+.crossroads .col {
+    margin: 0px;
+    border-right: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    min-height: 220px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: .7s all;
+    -moz-transition: .7s all;
+    -webkit-transition: .7s all;
+    -o-transition: .7s all;
+}
+.crossroads h2 {
+    color: #888888;
+    font-weight: 400;
+    transition: .7s all;
+    -moz-transition: .7s all;
+    -webkit-transition: .7s all;
+    -o-transition: .7s all;
+}
+.crossroads ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.crossroads ul li {
+    font-size: 20px;
+}
+.crossroads span {
+    font-size: 20px;
+    opacity: 0;
+    color: #fff;
+    transition: .7s all;
+    -moz-transition: .7s all;
+    -webkit-transition: .7s all;
+    -o-transition: .7s all;
+}
+
+/* crossroads hover */
+.crossroads .col:hover {
+    background: #2196f3;
+    color: #fff;
+}
+.crossroads .col:hover span {
+    opacity: 1;
+}
+.crossroads .col:hover h2 {
+    color: #fff;
+}
+
+/* gallery */
+.gallery {
+    position: relative;
+    margin: 0 40px 40px;
+}
+.gallery .col {
+    padding: 0;
+}
+.gallery .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.gallery span {
+    font-family: 'Caveat', cursive;
+    position: absolute;
+    color: #fff;
+    font-size: 34px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.gallery .name-0 {
+    top: 35%;
+    left: 10%;
+}
+.gallery .name-1 {
+    top: 10%;
+    left: 21%;
+}
+.gallery .name-2 {
+    top: 7%;
+    left: 73%;
+}
+.gallery .name-3 {
+    top: 80%;
+    left: 68%;
+}
+.gallery .name-4 {
+    top: 80%;
+    left: 15%;
+}
+.gallery .name-5 {
+    top: 15%;
+    left: 45%;
+}
+.gallery .name-6 {
+    top: 60%;
+    left: 35%;
+}
+.gallery .name-7 {
+    top: 30%;
+    left: 75%;
+}
+.gallery .name-8 {
+    top: 46%;
+    left: 72%;
+}
+.gallery .name-9 {
+    top: 20%;
+    left: 78%;
+}
+.gallery .name-10 {
+    left: 40%;
+    top: 5%;
+}
+.gallery .name-11 {
+    left: 10%;
+    top: 21%;
+}
+.gallery .name-12 {
+    left: 50%;
+    top: 41%;
+}
+.gallery .name-13 {
+    left: 70%;
+    top: 61%;
+}
+.gallery .name-14 {
+    left: 80%;
+    top: 15%;
+}
+.gallery .name-15 {
+    left: 15%;
+    top: 45%;
+}
+.gallery .name-16 {
+    left: 60%;
+    top: 35%;
+}
+.gallery .name-17 {
+    left: 30%;
+    top: 75%;
+}
+.gallery .name-18 {
+    left: 46%;
+    top: 72%;
+}
+.gallery .name-19 {
+    left: 45%;
+    top: 85%;
+}
+
+/* reference */
+.reference img {
+    width: auto;
+    height: 150px;
+}
+.reference span {
+    font-size: 20px;
 }
 
 

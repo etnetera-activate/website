@@ -1,7 +1,4 @@
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -11,7 +8,7 @@
 <script>
 	$(document).on("scroll", function() {
 
-		if($(document).scrollTop()>100) {
+		if($(document).scrollTop()>50) {
 			$("nav").removeClass("large").addClass("small");
 		} else {
 			$("nav").removeClass("small").addClass("large");
@@ -25,24 +22,42 @@
 		databaseURL: "https://activate-website-2.firebaseio.com/",
 		storageBucket: "bucket.appspot.com"
 	};
+
+	const rssData = {
+		rss_url : "https://medium.com/feed/etnetera-activate"
+    }
 	firebase.initializeApp(config);
 
-	var app = new Vue({
+	let app = new Vue({
 		el: '#app',
 		data: {
 			loaded: false,
-			references: undefined
+			references: undefined,
+            technologies: undefined,
+            peoples: undefined,
+			mediumArticles: undefined,
+		},
+		methods: {
+
 		},
 		mounted: function () {
 			this.$nextTick(function () {
+
+				fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fetnetera-activate&api_key=vxx13alxnggbzfqugtped2fmbwko53ry1c8lafmz")
+					.then(r => r.json())
+					.then(json => {
+						this.mediumArticles=json.items;
+						//console.log(this.mediumArticles);
+					});
+
 				firebase.database().ref('/content').once('value').then(
 					snapshot => {
 						data = snapshot.exportVal();
-						console.log("[Web content loaded]");
-						this.references = data.references;
+						this.references = data.projects;
+						this.peoples = data.peoples;
+						this.technologies = data.technologies;
 					});
 			})
-		}
-
+		},
 	})
 </script>

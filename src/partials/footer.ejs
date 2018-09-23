@@ -2,7 +2,7 @@
     <div class="col">
         <span class="comment">[ Tady nás najdeš ]</span>
         <address>
-            <h2>Etnetera Activate a.s.</h2>
+            <h3>Etnetera Activate a.s.</h3>
             Classic 7 - budova E<br>
             Jankovcova 1037/49<br>
             170 00 Praha 7<br>
@@ -15,10 +15,18 @@
     </div>
     <div class="col">
         <span class="comment">[ Tady nás najdeš úplně nejvíc! ]</span>
+        <div class="row">
+            <a href="https://twitter.com/etneteractivate" class="col social-icon"><img src="<%= site.basePath %>/assets/imgs/twitter.png" /></a>
+            <a href="https://www.linkedin.com/company/etnetera-activate" class="col social-icon"><img src="<%= site.basePath %>/assets/imgs/linkedin.png" /></a>
+        </div>
+
 
     </div>
-    <div class="col">
+    <div class="col" v-if="mediumArticles">
         <span class="comment">[ Sem píšeme <3 ]</span>
-        <h2>Activate Medium Blog</h2>
+        <h3>Activate Medium Blog</h3>
+        <div v-for="article in mediumArticles.slice(0, 6)">
+            <a :href="article.link">{{article.title}}</a>
+        </div>
     </div>
 </footer>
