@@ -5,13 +5,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+<script src="<%= site.basePath %>/assets/js/lodash.js"></script>
 <script>
 	$(document).on("scroll", function() {
 
-		if($(document).scrollTop()>50) {
-			$("nav").removeClass("large").addClass("small");
+		if($(document).scrollTop()>10) {
+			$("nav").addClass("small-bar");
 		} else {
-			$("nav").removeClass("small").addClass("large");
+			$("nav").removeClass("small-bar");
 		}
 
 	});
@@ -23,9 +24,6 @@
 		storageBucket: "bucket.appspot.com"
 	};
 
-	const rssData = {
-		rss_url : "https://medium.com/feed/etnetera-activate"
-    }
 	firebase.initializeApp(config);
 
 	let app = new Vue({
@@ -36,19 +34,52 @@
             technologies: undefined,
             peoples: undefined,
 			mediumArticles: undefined,
+            calendar: null,
+            showReferences: false,
+            activeTechnology: null,
+			activeTechnologyDescription: false,
 		},
 		methods: {
-
+            setActiveTechnology: function(technology){
+            	this.activeTechnology = technology;
+            	this.activeTechnologyDescription = true;
+            }
 		},
+        computed: {
+	        filteredTechnologies: function() {
+	        	return _.pickBy(this.technologies, function(tech) {
+	        		return tech.show
+                })
+            }
+        },
 		mounted: function () {
+			if (localStorage.getItem('medium')) {
+				this.mediumArticles = JSON.parse(localStorage.getItem('medium'));
+            }
+			if (localStorage.getItem('references')) {
+				this.references = JSON.parse(localStorage.getItem('references'));
+			}
+			if (localStorage.getItem('peoples')) {
+				this.peoples = JSON.parse(localStorage.getItem('peoples'));
+			}
+			if (localStorage.getItem('technologies')) {
+				this.technologies = JSON.parse(localStorage.getItem('technologies'));
+			}
 			this.$nextTick(function () {
 
 				fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fetnetera-activate&api_key=vxx13alxnggbzfqugtped2fmbwko53ry1c8lafmz")
 					.then(r => r.json())
 					.then(json => {
 						this.mediumArticles=json.items;
+						localStorage.setItem('medium', JSON.stringify(json.items));
 						//console.log(this.mediumArticles);
 					});
+
+				fetch("https://script.googleusercontent.com/macros/echo?user_content_key=PIWnqPW7MINDfCMi3MA3ONV3e9946Z0o161Pu70qhRszyiN9O4ZQUzoG2B3IzfBI7t5xb4CQGBL_746TnhaZQg8_3s9Y06yjm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNoCG7GpPNwSStVj--8-HB--L7N9_oPRegNG9Uhx8Qnc81eWmPYQOHMHfKi-9igU5qYZUYAg7cnB&lib=MyBl3eZNahTjJQ234MT9mYbQDS-WXaoVM")
+                    .then(data => data.json())
+                    .then(json => {this.calendar = json;
+
+                    });
 
 				firebase.database().ref('/content').once('value').then(
 					snapshot => {
@@ -56,6 +87,10 @@
 						this.references = data.projects;
 						this.peoples = data.peoples;
 						this.technologies = data.technologies;
+
+						localStorage.setItem('references', JSON.stringify(data.projects));
+						localStorage.setItem('peoples', JSON.stringify(data.peoples));
+						localStorage.setItem('technologies', JSON.stringify(data.technologies));
 					});
 			})
 		},

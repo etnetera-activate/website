@@ -1,18 +1,49 @@
 ---
 title:
 ---
-<section class="row">
-    <div class="col-sm-6 align-self-center">
-        <span class="comment">[ Co děláme? ]</span>
-        <h1>Přivádíme inovace k životu</h1>
-        <p>Vaše data <i class="icon icon-arrow-red-right"></i> naše nápady  <i class="icon icon-arrow-blue-right"></i>  nový businese</p>
+<section class="row justify-content-between">
+    <div class="col-sm-7 align-self-center">
+        <h1 class="underline">Jsme průvodci digitalní transformací</h1>
+        <p class="comment-straight">Vaše data <i class="ta-blue">+</i> naše nápady  <i class="ta-blue">=</i>  nový businese</p>
+        <p>Učíme firmy <strong>rozvíjet se na základě dat</strong>, podle principů digitální maturity. Díky pochopení role <strong>kvalitních dat</strong> a jejich interpretace dokážete rozvíjet business a inovace mnohem <strong>rychleji a kvalitněji</strong>.</p>
+        <ul class="blue-dot-list">
+            <li>Získáte perfektní přehled o pohybu zákazníka v multichanelu.</li>
+            <li>Využijete data o návštěvnosti pro doporučení dalších nákupů.</li>
+            <li>Ověříte nový nápad za 7 dnů místo za 7 měsíců.</li>
+        </ul>
     </div>
-    <img class="col-sm-6" src="<%= site.basePath %>/assets/imgs/tablet.png" />
+    <div class="col-sm-4">
+        <div class="snail-image">
+            <img src="<%= site.basePath %>/assets/imgs/homepage-snail.png" />
+            <ul>
+                <li>Sběr dat</li>
+                <li>Analýza<br>a pochopení</li>
+                <li>Rozhodování<br> podle dat</li>
+                <li>Optimalizace<br> &nbsp;&nbsp;procesů<br> &nbsp;&nbsp;produktů<br> &nbsp;&nbsp;plánů</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="w-100"></div>
+    <div class="col text-center">
+        <a class="button button-blue mt-5" href="<%= site.basePath %>/digitalni-maturita" title="Digitální maturita">Co je digitální maturita ››</a>
+    </div>
+</section>
+<span class="comment mt-5">[ Reference ]</span>
+<section class="row">
+    <h1 class="ml-sm-5">Co se nám povedlo</h1>
+    <%- include('../partials/references') %>
 </section>
 <%- include('../partials/technologies') %>
+<section class="row justify-content-between text-center pos-relative">
+    <div class="col text-center">
+        <span class="comment center mt">[ Zaujalo vás něco? ]</span>
+        <a class="button button-blue mt-5" href="<%= site.basePath %>/digitalni-maturita" title="Digitální maturita">Napište nám a zeptejte se ››</a>
+    </div>
+</section>
 
-<span class="comment mt-5">[ Reference ]</span>
-<%- include('../partials/references') %>
+
+
 
 
 

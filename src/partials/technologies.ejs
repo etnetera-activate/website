@@ -1,12 +1,24 @@
-<span class="comment red-arrow-down">[ Technologie, které používáme ]</span>
-<section class="row technologies">
-
-
-    <div v-for="technology in technologies" class="col align-self-center">
-        {{technology.name}}
+<span class="comment red-arrow-down mt-5">[ Technologie, které používáme ]</span>
+<section class="technologies">
+    <div class="row">
+        <div v-for="technology in filteredTechnologies" class="col-md-2 align-self-center technology" @click="setActiveTechnology(technology)">
+            {{technology.name}}
+        </div>
+        <div class="col-md-2 knowledge align-self-center">
+            <img src="<%= site.basePath %>/assets/imgs/icon-ampersand.png" />
+            <span>Naše znalosti</span>
+        </div>
     </div>
-    <div class="col knowledge align-self-center">
-        <img src="<%= site.basePath %>/assets/imgs/icon-ampersand.png" />
-        <span>Naše znalosti</span>
+    <div class="row justify-content-md-center" v-if="activeTechnologyDescription">
+        <div class="col-md-9 align-self-center technology-description">
+            <h3>{{activeTechnology.name}}:</h3>
+            <div class="row">
+                <div class="col-md-4 align-self-center"><img :src="'<%= site.basePath %>/assets/technologies/' + activeTechnology.image + '.png'" /></div>
+                <div class="col-md-8 align-self-center">
+                    <p>{{activeTechnology.description}}</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>

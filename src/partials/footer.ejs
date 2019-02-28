@@ -1,19 +1,19 @@
 <footer class="site-footer row">
-    <div class="col">
+    <div class="col-sm">
         <span class="comment">[ Tady nás najdeš ]</span>
         <address>
-            <h3>Etnetera Activate a.s.</h3>
+            <h3 class="dark-blue">Etnetera Activate a.s.</h3>
             Classic 7 - budova E<br>
             Jankovcova 1037/49<br>
             170 00 Praha 7<br>
             <br>
-            Fakturační údaje<br>
+            <a href="#" data-toggle="modal" data-target="#billing">Fakturační údaje</a><br>
             <br>
             Tel.: <a href="tel:+420233326810">+420 233 326 810</a><br>
             E-mail: <a href="mailto:my@activate.cz">my@activate.cz</a>
         </address>
     </div>
-    <div class="col">
+    <div class="col-sm">
         <span class="comment">[ Tady nás najdeš úplně nejvíc! ]</span>
         <div class="row">
             <a href="https://twitter.com/etneteractivate" class="col social-icon"><img src="<%= site.basePath %>/assets/imgs/twitter.png" /></a>
@@ -22,11 +22,55 @@
 
 
     </div>
-    <div class="col" v-if="mediumArticles">
+    <div class="col-sm" v-if="mediumArticles">
         <span class="comment">[ Sem píšeme <3 ]</span>
-        <h3>Activate Medium Blog</h3>
-        <div v-for="article in mediumArticles.slice(0, 6)">
-            <a :href="article.link">{{article.title}}</a>
-        </div>
+        <h3 class="dark-blue">Activate Medium Blog</h3>
+        <ul class="blue-dot-list">
+            <li v-for="article in mediumArticles.slice(0, 4)">
+                <a :href="article.link" v-html="article.title"></a>
+            </li>
+        </ul>
     </div>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="billing" tabindex="-1" role="dialog" aria-labelledby="billingDialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="billingDialog">Fakturační údaje</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col text-right"><strong>Adresa:</strong></div>
+                    <div class="col">
+                        <address>
+                            <strong>Etnetera Activate a.s.</strong><br />
+                            Jankovcova 1037/49<br />
+                            170 00 Praha 7<br />
+                        </address>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-right"><strong>IČ:</strong></div>
+                    <div class="col">02713209</div>
+                </div>
+                <div class="row">
+                    <div class="col text-right"><strong>DIČ:</strong></div>
+                    <div class="col">CZ02713209</div>
+                </div>
+                <div class="row">
+                    <div class="col text-right"><strong>Bankovní spojení:</strong></div>
+                    <div class="col">KB 107-6999960257 / 0100 (CZK)<br />KB 107-7006180227 / 0100 (EUR)</div>
+                </div>
+                <div class="row">
+                    <div class="col text-right"><strong>Zapsána:</strong></div>
+                    <div class="col">u MS Praha, sp. zn. B 19645</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
