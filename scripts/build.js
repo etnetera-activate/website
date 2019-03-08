@@ -11,11 +11,15 @@ const srcPath = './src';
 const distPath = config.build.outputPath;
 
 chokidar.watch(`${srcPath}`, {ignored: /(^|[\/\\])\.\./}).on('all', (event, path) => {
-	console.log(event, path);
+	//console.log(event, path);
 	const re = new RegExp("^(.(.*\\.html|.*\\.md|.*\\.ejs))*$");
 
+	if(re.test(path)){
+		console.log(path);
 
-	if (re.test(path)) {
+	}
+
+	if (event === "change") {
 		build();
 	} else {
 		fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
@@ -39,6 +43,7 @@ const build = function(){
 	const files = glob.sync('**/*.@(md|ejs|html)', { cwd: `${srcPath}/pages` });
 
 	files.forEach((file, i) => {
+		console.log("file : " + file);
 		const fileData = path.parse(file);
 		const destPath = path.join(distPath, fileData.dir);
 
