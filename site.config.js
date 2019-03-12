@@ -1,7 +1,7 @@
 module.exports = {
 	site: {
-		title: 'Activate',
-		description: 'Micro Static Site Generator in Node.js',
+		title: 'Activate ',
+		description: 'Online konzultanti s vášní pro data',
 		basePath: process.env.NODE_ENV === 'production' ? '/test' : ''
 	},
 	build: {

@@ -9,11 +9,20 @@
 <script>
 	$(document).on("scroll", function() {
 
-		if($(document).scrollTop()>10) {
-			$("nav").addClass("small-bar");
-		} else {
-			$("nav").removeClass("small-bar");
-		}
+		if(document.body.offsetWidth > 991) {
+			if($(document).scrollTop()>10) {
+				$("nav").addClass("small-bar");
+			} else {
+				$("nav").removeClass("small-bar");
+			}
+        } else {
+			if($(document).scrollTop()>0) {
+				$("nav").addClass("decorated");
+			} else {
+				$("nav").removeClass("decorated");
+			}
+        }
+
 
 	});
 
@@ -40,12 +49,40 @@
 			activeTechnologyDescription: false,
             now: Date.now(),
             timestamp: 0,
+            message: "",
+            name: "",
+            email: "",
+			errorName: "",
+			errorEmail: "",
 		},
 		methods: {
             setActiveTechnology: function(technology){
             	this.activeTechnology = technology;
             	this.activeTechnologyDescription = true;
-            }
+            },
+			checkForm: function (e) {
+				this.errorName = "";
+				this.errorEmail = "";
+
+				if (!this.name) {
+					this.errorName ="Rádi bychom věděli jak se jmenujete.";
+				}
+				if (!this.email) {
+					this.errorEmail = "Bez e-mailu se vám nemůžeme ozvat.";
+				} else if (!this.validEmail(this.email)) {
+					this.errorEmail = "Váš pravý e-mail by byl fajn.";
+				}
+
+				if (this.errorName === "" && this.errorEmail === "") {
+					return true;
+				}
+
+				e.preventDefault();
+			},
+			validEmail: function (email) {
+				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(email);
+			}
 		},
         computed: {
 	        filteredTechnologies: function() {

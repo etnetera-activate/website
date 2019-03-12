@@ -1,0 +1,38 @@
+<section class="row" id="kontakt">
+    <div class="col">
+        <h1 class="ml-sm-5">Napište nám. Žádný dotaz není blbý!</h1>
+        <p class="ml-sm-5">Máme rádi dotazy, protože to znamená, že vás téma zaujalo a chcete se dozvědět víc. <strong>Takže neváhejte a zeptejte se na cokoliv chcete.</strong></p>
+        <p class="ml-sm-5">Nemáme žádné automatické odpovídací systémy, takže se to dostane ke skutečným lidem. :-)</p>
+        <div class="letter-wrapper">
+            <div class="letter">
+                <form class="row text-left" novalidate="true" @submit="checkForm" action="">
+                    <div class="col-lg-5 offset-lg-1 col-md-6 d-none d-sm-block">
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" v-model="message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 left-col col">
+                        <div class="form-group">
+                            <label for="name">Jméno<span class="form-error" v-if="errorName">{{errorName}}</span></label>
+                            <input type="text" name="name" id="name" class="form-control" v-model="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail<span class="form-error" v-if="errorEmail">{{errorEmail}}</span></label>
+                            <input type="email" name="email" id="email" class="form-control" v-model="email">
+                            <div class="invalid-feedback" v-if="errorEmail">
+                                {{errorEmail}}
+                            </div>
+                        </div>
+                        <div class="form-group d-block d-sm-none">
+                            <label for="message2">Váš dotaz?</label>
+                            <textarea class="form-control" name="message" v-model="message" id="message2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control button button-submit">Odeslat</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

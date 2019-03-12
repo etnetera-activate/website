@@ -2,7 +2,7 @@
 title:
 ---
 <section class="row justify-content-between">
-    <div class="col-sm-7 align-self-center">
+    <div class="col-lg-8 col-md-12 align-self-center">
         <h1 class="underline">Jsme průvodci digitalní transformací</h1>
         <p class="comment-straight">Vaše data <i class="ta-blue">+</i> naše nápady  <i class="ta-blue">=</i>  nový businese</p>
         <p>Učíme firmy <strong>rozvíjet se na základě dat</strong>, podle principů digitální maturity. Díky pochopení role <strong>kvalitních dat</strong> a jejich interpretace dokážete rozvíjet business a inovace mnohem <strong>rychleji a kvalitněji</strong>.</p>
@@ -12,7 +12,7 @@ title:
             <li>Ověříte nový nápad za 7 dnů místo za 7 měsíců.</li>
         </ul>
     </div>
-    <div class="col-sm-4">
+    <div class="col-lg-4 d-md-none d-lg-block">
         <div class="snail-image">
             <img src="<%= site.basePath %>/assets/imgs/homepage-snail.png" />
             <ul>
@@ -31,14 +31,17 @@ title:
 </section>
 <span class="comment mt-5">[ Reference ]</span>
 <section class="row">
-    <h1 class="ml-sm-5">Co se nám povedlo</h1>
-    <%- include('../partials/references') %>
+    <div class="col">
+        <h1 class="ml-sm-5">Co se nám povedlo</h1>
+        <%- include('../partials/references') %>
+    </div>
+
 </section>
 <%- include('../partials/technologies') %>
-<section class="row justify-content-between text-center pos-relative">
+<section class="row justify-content-between text-center pos-relative mt-5">
     <div class="col text-center">
         <span class="comment center mt">[ Zaujalo vás něco? ]</span>
-        <a class="button button-blue mt-5" href="<%= site.basePath %>/digitalni-maturita" title="Digitální maturita">Napište nám a zeptejte se ››</a>
+        <a class="button button-blue mt-5" href="<%= site.basePath %>/jak-a-kde#kontakt" title="Kontaktujte nás">Napište nám a zeptejte se ››</a>
     </div>
 </section>
 
