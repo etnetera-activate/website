@@ -875,6 +875,10 @@ address {
     color: #d95151;
     margin-left: 10px;
 }
+.alert {
+    position: absolute;
+    z-index: 100;
+}
 
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -931,6 +935,9 @@ address {
 
     .site-footer {
         font-size: 18px;
+    }
+    .comment {
+        font-size: 24px;
     }
 }
 
@@ -1008,7 +1015,7 @@ address {
         text-align: center;
     }
     .comment-right {
-        margin: 20px 0 20px 50px;
+        margin: 20px 0 20px 0;
     }
 }
 
