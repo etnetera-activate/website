@@ -22,7 +22,8 @@ chokidar.watch(`${srcPath}`, {ignored: /(^|[\/\\])\.\./}).on('all', (event, path
 	if (event === "change") {
 		build();
 	} else {
-		fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
+		//TODO: lepsi sprava souboru, nekdy se stane, ze kopirovani vytvori nekolik kopii souboru
+		//fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
 	}
 
 	//build();
