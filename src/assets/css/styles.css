@@ -24,14 +24,26 @@ h1 {
 h2 {
     color: #009ee6;
     font-size: 40px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 h3 {
-    color: #009ee6;
+    color: #282828;
     font-size: 30px;
     margin-bottom: 15px;
     font-weight: 500;
+}
+.big-letter {
+    font-size: 50px;
+    display: block;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 5px;
+    font-weight: 600;
+    line-height: 60px;
+}
+.serif-font {
+    font-family: 'bookman', Serif;
 }
 .dark-blue {
     color: #3f51b5;
@@ -782,6 +794,17 @@ address {
     width: 200px;
     line-height: 35px;
 }
+.hexagon-wrapper p {
+    position: absolute;
+    font-style: italic;
+    font-size: 17px;
+    color: #888888;
+    top: 23%;
+    left: 70px;
+    display: block;
+    width: 200px;
+    line-height: 24px;
+}
 .hexagon-wrapper img {
     position: absolute;
     top: 50px;
@@ -879,6 +902,8 @@ address {
     position: absolute;
     z-index: 100;
 }
+
+
 
 
 /* Extra small devices (portrait phones, less than 576px) */
