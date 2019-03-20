@@ -367,18 +367,7 @@ a:hover {
 .navbar-light .navbar-nav .nav-link:hover {
     color: #009ee6;
 }
-.navbar-light .navbar-nav .nav-link:hover:before {
-    content: '';
-    background: url("../imgs/arrow-menu-down.png") no-repeat;
-    width: 16px;
-    height: 50px;
-    display: block;
-    position: absolute;
-    left: 50%;
-    margin-left: -8px;
-    top: -40px;
-    opacity: 0.4;
-}
+
 .page-header a:hover {
     font-weight: bold;
 }
@@ -1048,5 +1037,17 @@ address {
 @media (min-width: 992px) {
     .navbar {
         height: 300px;
+    }
+    .navbar-light .navbar-nav .nav-link:hover:before {
+        content: '';
+        background: url("../imgs/arrow-menu-down.png") no-repeat;
+        width: 16px;
+        height: 50px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        top: -40px;
+        opacity: 0.4;
     }
 }
