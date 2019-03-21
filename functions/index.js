@@ -10,7 +10,9 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 // SLACK api webhook url
-const slackUrl = "https://hooks.slack.com/services/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"
+//const slackUrl = "https://hooks.slack.com/services/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";
+//roman slack
+const slackUrl = "https://hooks.slack.com/services/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";
 
 // deal with CORS problem/security
 const cors = require('cors')({
@@ -46,6 +48,8 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 
 		// MAILKIT API
 		const mailkitUrl = "https://api.mailkit.eu/rpc.fcgi";
+
+		// tvorba xml requestu na mailkit
 		let xml = builder.create({
 			methodCall: {
 				methodName: 'mailkit.sendmail',
@@ -73,7 +77,7 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 									member: {
 										name: 'send_to',
 										value: {
-											string: 'petr.skoda@etnetera.cz'
+											string: 'roman.lowinger@etnetera.cz'
 										}
 									}
 								}
@@ -104,6 +108,11 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 											name: 'custom3',
 											value: {
 												string: Base64.encode(message)
+											}
+										}, {
+											name: 'custom4',
+											value: {
+												string: Base64.encode(date)
 											}
 										}
 									]
