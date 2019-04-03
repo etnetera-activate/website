@@ -1,4 +1,4 @@
-measure = function (data) {
+(measure = function (data) {
     
     measureNotify (data);
 
@@ -10,4 +10,4 @@ measure = function (data) {
         console.log ("---------------------------------------------");
     }
 
-}
+})()
