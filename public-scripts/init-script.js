@@ -9,7 +9,7 @@ var digitalData = digitalData || {};
 	e = k.createElement(t),
 	m = k.getElementsByTagName(t)[0],
 	e.async = 1,
-	e.src="https://combinatronics.com/etnetera-activate/website/master/public-scripts/measureFunction.js";
+	e.src="https://combinatronics.com/etnetera-activate/website/master/public-scripts/measureFunctions.js";
 	m.parentNode.insertBefore(e, m);
 // Google Snippet
 	e = k.createElement(t),
