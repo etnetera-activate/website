@@ -1,21 +1,26 @@
----
-title: My
----
-<h1 class="ml-md-5">Všechno tohle dohromady dává smysl!</h1>
-<%- include('../../partials/our-services') %>
 
-<h2 class="ml-md-5">Lidé a jejich příběhy</h2>
-<div class="row">
-    <a v-for="(member, index) in peoples" :class="'col-md-4 mb-4 media name-'+ index" href="#" data-toggle="modal" :data-target="'#peopleModal-'+ index">
-        <div class="image mr-3" :style="'background-image: url(/assets/peoples/'+ member.short.toLowerCase() +'.jpg)'"></div>
-        <div class="media-body">
-            <h5 class="mt-0">{{member.name}} {{member.lastname}}</h5>
-            <span>{{member.position}}</span>
-        </div>
-    </a>
-</div>
+<section class="peoples">
+    <h2 class="ml-md-5">Lidé a jejich příběhy</h2>
+    <div class="row">
+        <a v-for="(member, index) in peoples"
+           :class="'col-md-2 media name-'+ index"
+           href="#"
+           data-toggle="modal"
+           :data-target="'#peopleModal-'+ index"
+           :style="'background-image: url(/assets/imgs/peoples/'+ member.actualPhoto +'.jpg)'"
+           >
+            <div class="image" v-on:mouseenter="photoEnter(member)"
+                 v-on:mouseleave="photoLeave(member)">
+                <h5>{{member.name}} {{member.lastname}}</h5>
+                <span>{{member.position}}</span>
+            </div>
+        </a>
+    </div>
 
-<%- include('../../partials/technologies') %>
+</section>
+
+
+
 
 <!-- Modal -->
 <div v-for="(member, index) in peoples" class="modal fade" :id="'peopleModal-'+ index" tabindex="-1" role="dialog" :aria-labelledby="'modal'+ index" aria-hidden="true">
@@ -29,7 +34,7 @@ title: My
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md mb-2"><img :src="'/assets/peoples/'+ member.short.toLowerCase() +'.jpg'" :alt="member.name + member.lastname" /></div>
+                    <div class="col-md mb-2"><img :src="'/assets/imgs/peoples/'+ member.short.toLowerCase() +'1.jpg'" :alt="member.name + member.lastname" /></div>
                     <div class="col-md aboutMember">
                         <div><strong>Hodnost: </strong><span class="underline">{{member.position}}</span></div>
                         <div><strong>Přjmení: </strong><span class="underline">{{member.lastname}}</span><br /></div>

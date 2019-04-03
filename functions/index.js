@@ -10,9 +10,9 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 // SLACK api webhook url
-//const slackUrl = "https://hooks.slack.com/services/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";
-//roman slack
-const slackUrl = "https://hooks.slack.com/services/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";
+const slackUrl = "https://hooks.slack.com/services/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";
+// test slack url
+//const slackUrl = "https://hooks.slack.com/services/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";
 
 // deal with CORS problem/security
 const cors = require('cors')({
@@ -77,7 +77,7 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 									member: {
 										name: 'send_to',
 										value: {
-											string: 'roman.lowinger@etnetera.cz'
+											string: 'info@activate.cz'
 										}
 									}
 								}
