@@ -26,6 +26,8 @@
 
 	});
 
+
+
 	// Initialize Firebase
 	var config = {
 		apiKey: "AIzaSyDBi1nrdZDnKdQZVG-et2IdKHtUlhOU-FU",
@@ -88,7 +90,7 @@
 				return re.test(email);
 			},
 			storeMessage: function () {
-				const url = "https://us-central1-activate-website-2.cloudfunctions.net/saveMessage?message=" + encodeURI(this.message) +  "&email=" + encodeURI(this.email) + "&name=" + encodeURI(this.name);
+				const url = "https://us-central1-activate-website-2.cloudfunctions.net/saveMessage?message=" + encodeURIComponent(this.message) +  "&email=" + encodeURIComponent(this.email) + "&name=" + encodeURIComponent(this.name);
                 console.log("Storing message " + this.message + " for " + this.email + " name: " + this.name);
                 console.log(url)
                 // ulozeni message
@@ -103,7 +105,20 @@
                         this.error = response.status + ' + ' + JSON.stringify(response.body);
                     }
                 );
-			}
+			},
+            photoEnter: function(people){
+            	console.log('enter');
+                for(let i=1; i <= people.photos; i++) {
+                    setTimeout(function(){
+                        console.log(i);
+                        people.actualPhoto = people.short.toLowerCase() + i;
+                    }, i*500);
+                }
+            },
+            photoLeave: function(people){
+	            console.log('leave');
+            	people.actualPhoto = people.short.toLowerCase() + '1';
+            }
 		},
         computed: {
 	        filteredTechnologies: function() {
@@ -165,6 +180,12 @@
 						});
 
 				})
+            }
+
+
+			//image preloading
+            if(window.location.pathname === '') {
+            	console.log('test');
             }
 
 
