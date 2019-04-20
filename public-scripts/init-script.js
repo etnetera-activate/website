@@ -102,7 +102,7 @@ consoleQuest = function (step) {
 	// Step 1
 	if (window.location.pathname=="/" && step==undefined) {consoleQuest.notify (0,0)};
 	// Step 2
-	if (window.location.pathname=="/"&& step==undefined) {dataLayer.push(consoleQuestTexts[1])};
+	if (window.location.pathname=="/"&& step==undefined) {dataLayer.push({console:consoleQuestTexts[1]})};
 }
 
 // Notification to console
