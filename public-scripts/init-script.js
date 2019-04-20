@@ -28,8 +28,6 @@ measure = function (data) {
 	measure.notify (data);
 	measure.add (data);
 	measure.google (data);
-	
-	//if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest(3)};
 }
 
 // Notification to console
@@ -44,6 +42,7 @@ measure.notify = function (data){
 		default:
 			var measureLog = localStorage.getItem("measureLog");
 
+			// For consoleQuest step 3
 			var consoleQuest3;
 			if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest3 = "\n"+consoleQuestTexts[2]};
 
@@ -103,10 +102,7 @@ consoleQuest = function (step) {
 	// Step 1
 	if (window.location.pathname=="/" && step==undefined) {consoleQuest.notify (0,0)};
 	// Step 2
-	if (window.location.pathname=="/"&& step==undefined) {dataLayer[0]={consoleQuest:consoleQuestTexts[1]}};
-	// Step 3
-	if (step==3) {measure.notify(consoleQuestTexts[2])};
-
+	if (window.location.pathname=="/"&& step==undefined) {dataLayer.push=consoleQuestTexts[1]};
 }
 
 // Notification to console
@@ -115,11 +111,13 @@ consoleQuest.notify = function (textNmb, styleNmb, treasure) {
 	else {console.log ("%c"+consoleQuestTexts[textNmb], consoleQuestNotifyStyles[styleNmb])};
 }
 
+// Treasure notification to console
+var consoleQuestLooted = 0;
+
 consoleQuest.treasure = function(){
-	var looted;
 	var randomLoot = Math.floor(Math.random()*consoleQuestLoot.length);
-	if (looted == undefined) {consoleQuest.notify(4,1); looted = 1};
-	consoleQuest.notify(randomLoot,2,1);
+	if (consoleQuestLooted == 0) {consoleQuest.notify(4,1); consoleQuestLooted = 1};
+	consoleQuest.notify(randomLoot,1,1);
 }
 
 // Texts for notification to console
