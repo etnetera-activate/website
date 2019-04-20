@@ -117,7 +117,7 @@ consoleQuest.notify = function (textNmb, styleNmb, treasure) {
 
 consoleQuest.treasure = function(){
 	var looted;
-	var randomLoot = Math.floor(Math.random()*consoleQuestJokes.length);
+	var randomLoot = Math.floor(Math.random()*consoleQuestLoot.length);
 	if (looted == undefined) {consoleQuest.notify(4,1); looted = 1};
 	consoleQuest.notify(randomLoot,2,1);
 }
