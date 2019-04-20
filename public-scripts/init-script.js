@@ -110,21 +110,42 @@ consoleQuest = function (step) {
 }
 
 // Notification to console
-consoleQuest.notify = function (textNmb, styleNmb) {
-	console.log ("%c"+consoleQuestTexts[textNmb], consoleQuestNotifyStyles[styleNmb])
+consoleQuest.notify = function (textNmb, styleNmb, treasure) {
+	if (treasure == 1) {console.log ("%c"+consoleQuestLoot[textNmb], consoleQuestNotifyStyles[styleNmb])}
+	else {console.log ("%c"+consoleQuestTexts[textNmb], consoleQuestNotifyStyles[styleNmb])};
+}
+
+consoleQuest.treasure = function(){
+	var looted;
+	var randomLoot = Math.floor(Math.random()*consoleQuestJokes.length);
+	if (looted == undefined) {consoleQuest.notify(4,1); looted = 1};
+	consoleQuest.notify(randomLoot,2,1);
 }
 
 // Texts for notification to console
 var consoleQuestTexts = [
 	" Vítej poutníku!\n  Je to tady doste pěkný co? No tak taky jsme jako fakt krutopřísná firma.\n  No každopádně není čas ztrácet čas a ryhle jukni do prvního elementu datový vrstvy Google Tag Manageru. Piece of cake, ne?",
 	"Tak se zase potkáváme. Vidím, že s technologií vod Googlu jsi moc dobře obeznámem. Pěkná práce. Každopádně pouze Google není živ člověk. Takže tady pro notifikaci eventů nepoužíváme dataLayer.push, ale funkci measure. Když si ji zavoláš s parametrem true, tak ti začne do konzole vypisovat, jaká data dostavá. Hustý ne? Teď se dobrodruhu vydej do země s fokama lidí, co u nás pracujou a vyhledej Lukáše Čecha, ten ti poradí, kudy dál. See ya.",
-	"Ahoj, Já jsem Lukáš Čech a jsem starý moudrý čaroděj a podobný pindy."
+	"Ahoj, Já jsem Lukáš Čech a jsem starý moudrý čaroděj a podobný pindy.",
+	"Piwik text",
+	" No tak totákně hustý. Poršel jsi všema zkouškama a poradit všechny draky. Můžu to jen gratulovat.\n Každopáně teď nějakej plk vo tom, ať nám napíšeš :-)\n A tvůj zasloužený poklad:",
+	" Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den."
 ];
 
 // CSS Styles for notification to console
 var consoleQuestNotifyStyles = [
 	"border: 3px solid red",
 	"border-left: 4px dotted blue"
+];
+
+// Jokes for treasure
+var consoleQuestLoot = [
+	" 1-Sranda",
+	" 2-Vtip",
+	" 3-Fór",
+	" 4-Gag",
+	" 5-Psina",
+	" 6-Hlína"
 ];
 
 consoleQuest();
