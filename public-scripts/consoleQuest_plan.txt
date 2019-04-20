@@ -1,0 +1,67 @@
+Krok 1
+Obsah: Přivítání a seznámení s consoleQuest, slíbení pokladu
+Umístění: Hned nahoře v konzoli Homepage
+
+Text seriózní: -> UKOL: Napsat text
+Text fantasy: -> UKOL: Napsat text
+UKOL: Zajistit CSS zformátování textu
+
+Řešení: if (window.location.pathname=="/") {consoleQuest.notify (Text1)};
+
+Směřuje přímo do "kroku [0] web analytické datové vrstvy" (tj. dataLayer[0])
+
+------------------------------------------------------------
+Krok 2
+Obsah: Postěžování si, že dataLayer.push nemusí být vždy vše, seznámení s measure a způsobem, jak si zapnout notifikace do measure
+Umístění: dataLayer[0]
+
+Text seriózní: -> UKOL: Napsat text
+Text fantasy: -> UKOL: Napsat text
+
+Řešení: if (Homepage) {dataLayer[0] (Text2);
+
+Směřuje podívat se, co notifikuje daná akce.
+
+------------------------------------------------------------
+Krok 3
+Obsah:
+Umístění: Podívat se co notifikuje measure pro nějakou specifickou akci -> kliknutí na nějakou konkrétní technologii, nebo mouseover nad Lukášem
+
+Text seriózní: -> UKOL: Napsat text
+Text fantasy: -> UKOL: Napsat text
+
+Řešení: if (action: “slideShowMouseover” && slideShowPerson : “Lukáš Čech”) {add to }
+
+Směřuje do network, podívat se do hitu do Piwika, pro tuhle akci
+
+------------------------------------------------------------
+Krok 4
+Obsah:
+Umístění: V hitu, pro tuhle akci, do Piwika
+
+Text seriózní: -> UKOL: Napsat text
+Text fantasy: -> UKOL: Napsat text
+
+Řešení: TBA
+
+Směřuje k cíli, seznámení s fukncí consoleQuest.treasure()
+
+------------------------------------------------------------
+Krok poslední
+Obsah: Poklad consoleQuestu
+Umístění: consoleQuest.treasure()
+
+Funkce při svém zavolání vrátí na poprvé gratulaci a nějaký krátký onboardingový text, při dalších, už jen nějaký krátký veselý komentář, k lootování vtipů.
+Funkce při svém zavolání vrátí vrátí náhodný vtip ze seznamu. UKOL: Sebrat pár pěkných vtipů
+UKOL: Vymyslet funkci, která zajití, že se vtipy nebou opakovat.
+
+
+------------------------------------------------------------
+Texty-------------------------------------------------------
+------------------------------------------------------------
+
+Krok 1:
+Vítej poutníče,\n
+vypadáš unaveně. Jistě tě sem, do naší putiky U černé konzole, dovedla dlouhá a náročná cesta.\n
+
+

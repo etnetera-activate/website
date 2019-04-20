@@ -117,17 +117,22 @@ var consoleQuestLooted = 0;
 consoleQuest.treasure = function(){
 	var randomLoot = Math.floor(Math.random()*consoleQuestLoot.length);
 	if (consoleQuestLooted == 0) {consoleQuest.notify(4,1); consoleQuestLooted = 1};
-	consoleQuest.notify(randomLoot,1,1);
+	if (consoleQuest!=[]){
+		consoleQuest.notify(randomLoot,1,1);
+		consoleQuestLoot.splice(randomLoot,1);
+	} else {
+		consoleQuest.notify(5,1)
+	}
 }
 
 // Texts for notification to console
 var consoleQuestTexts = [
-	" Vítej poutníku!\n  Je to tady doste pěkný co? No tak taky jsme jako fakt krutopřísná firma.\n  No každopádně není čas ztrácet čas a ryhle jukni do prvního elementu datový vrstvy Google Tag Manageru. Piece of cake, ne?",
+	"Vítej poutníku!\n  Je to tady doste pěkný co? No tak taky jsme jako fakt krutopřísná firma.\n No každopádně není čas ztrácet čas a ryhle jukni do prvního elementu datový vrstvy Google Tag Manageru. Piece of cake, ne?",
 	"Tak se zase potkáváme. Vidím, že s technologií vod Googlu jsi moc dobře obeznámem. Pěkná práce. Každopádně pouze Google není živ člověk. Takže tady pro notifikaci eventů nepoužíváme dataLayer.push, ale funkci measure. Když si ji zavoláš s parametrem true, tak ti začne do konzole vypisovat, jaká data dostavá. Hustý ne? Teď se dobrodruhu vydej do země s fokama lidí, co u nás pracujou a vyhledej Lukáše Čecha, ten ti poradí, kudy dál. See ya.",
 	"Ahoj, Já jsem Lukáš Čech a jsem starý moudrý čaroděj a podobný pindy.",
 	"Piwik text",
-	" No tak totákně hustý. Poršel jsi všema zkouškama a poradit všechny draky. Můžu to jen gratulovat.\n Každopáně teď nějakej plk vo tom, ať nám napíšeš :-)\n A tvůj zasloužený poklad:",
-	" Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den."
+	"No tak totákně hustý. Poršel jsi všema zkouškama a poradit všechny draky. Můžu to jen gratulovat.\n Každopáně teď nějakej plk vo tom, ať nám napíšeš :-)\n A tvůj zasloužený poklad:",
+	"Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den."
 ];
 
 // CSS Styles for notification to console
