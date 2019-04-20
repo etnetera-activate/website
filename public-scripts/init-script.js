@@ -29,7 +29,7 @@ measure = function (data) {
 	measure.add (data);
 	measure.google (data);
 	
-	if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest(3)};
+	//if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest(3)};
 }
 
 // Notification to console
@@ -43,10 +43,15 @@ measure.notify = function (data){
 			break;
 		default:
 			var measureLog = localStorage.getItem("measureLog");
+
+			var consoleQuest3;
+			if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest3 = "\n"+consoleQuestTexts[2]};
+
 			if (measureLog == "true"){
 				console.group();
 				console.warn ("Measure function has received:\n" +
-					JSON.stringify(data, null, 2));
+					JSON.stringify(data, null, 2) +
+					consoleQuest3);
 				console.groupEnd();
 			}
 	}
@@ -96,9 +101,9 @@ measure.google = function (data){
 // Console Quest
 consoleQuest = function (step) {
 	// Step 1
-	if (window.location.pathname=="/") {consoleQuest.notify (0,0)};
+	if (window.location.pathname=="/" && step==undefined) {consoleQuest.notify (0,0)};
 	// Step 2
-	if (window.location.pathname=="/") {dataLayer[0] = consoleQuestTexts[1]};
+	if (window.location.pathname=="/"&& step==undefined) {dataLayer[0]={consoleQuest:consoleQuestTexts[1]}};
 	// Step 3
 	if (step==3) {measure.notify(consoleQuestTexts[2])};
 
@@ -109,11 +114,11 @@ consoleQuest.notify = function (textNmb, styleNmb) {
 	console.log ("%c"+consoleQuestTexts[textNmb], consoleQuestNotifyStyles[styleNmb])
 }
 
-// CSS Styles for notification to console
+// Texts for notification to console
 var consoleQuestTexts = [
-	" Testovací text UNO!",
-	" Druhý text",
-	" Nějaký další keci\n A další a další\n A DALŠÍ!!!"
+	" Vítej poutníku!\n  Je to tady doste pěkný co? No tak taky jsme jako fakt krutopřísná firma.\n  No každopádně není čas ztrácet čas a ryhle jukni do prvního elementu datový vrstvy Google Tag Manageru. Piece of cake, ne?",
+	"Tak se zase potkáváme. Vidím, že s technologií vod Googlu jsi moc dobře obeznámem. Pěkná práce. Každopádně pouze Google není živ člověk. Takže tady pro notifikaci eventů nepoužíváme dataLayer.push, ale funkci measure. Když si ji zavoláš s parametrem true, tak ti začne do konzole vypisovat, jaká data dostavá. Hustý ne? Teď se dobrodruhu vydej do země s fokama lidí, co u nás pracujou a vyhledej Lukáše Čecha, ten ti poradí, kudy dál. See ya.",
+	"Ahoj, Já jsem Lukáš Čech a jsem starý moudrý čaroděj a podobný pindy."
 ];
 
 // CSS Styles for notification to console
