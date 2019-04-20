@@ -27,7 +27,9 @@ measure = function (data) {
 
 	measure.notify (data);
 	measure.add (data);
-    measure.google (data);
+	measure.google (data);
+	
+	if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest(3)};
 }
 
 // Notification to console
@@ -44,7 +46,7 @@ measure.notify = function (data){
 			if (measureLog == "true"){
 				console.group();
 				console.warn ("Measure function has received:\n" +
-					JSON.stringify(data, null, 2))
+					JSON.stringify(data, null, 2));
 				console.groupEnd();
 			}
 	}
@@ -89,3 +91,35 @@ measure.google = function (data){
 	}
     dataLayer.push (data)
 }
+
+
+// Console Quest
+consoleQuest = function (step) {
+	// Step 1
+	if (window.location.pathname=="/") {consoleQuest.notify (0,0)};
+	// Step 2
+	if (window.location.pathname=="/") {dataLayer[0] = consoleQuestTexts[1]};
+	// Step 3
+	if (step==3) {measure.notify(consoleQuestTexts[2])};
+
+}
+
+// Notification to console
+consoleQuest.notify = function (textNmb, styleNmb) {
+	console.log ("%c"+consoleQuestTexts[textNmb], consoleQuestNotifyStyles[styleNmb])
+}
+
+// CSS Styles for notification to console
+var consoleQuestTexts = [
+	" Testovací text UNO!",
+	" Druhý text",
+	" Nějaký další keci\n A další a další\n A DALŠÍ!!!"
+];
+
+// CSS Styles for notification to console
+var consoleQuestNotifyStyles = [
+	"border: 3px solid red",
+	"border-left: 4px dotted blue"
+];
+
+consoleQuest();
