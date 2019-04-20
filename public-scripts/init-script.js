@@ -112,12 +112,12 @@ consoleQuest.notify = function (textNmb, styleNmb, treasure) {
 }
 
 // Treasure notification to console
-var consoleQuestLooted = 0;
+var consoleQuestFirstLooted = 0;
 
 consoleQuest.treasure = function(){
 	var randomLoot = Math.floor(Math.random()*consoleQuestLoot.length);
-	if (consoleQuestLooted == 0) {consoleQuest.notify(4,1); consoleQuestLooted = 1};
-	if (consoleQuest!=[]){
+	if (consoleQuestFirstLooted == 0) {consoleQuest.notify(4,1); consoleQuestFirstLooted = 1};
+	if (consoleQuestLoot!=[]){
 		consoleQuest.notify(randomLoot,1,1);
 		consoleQuestLoot.splice(randomLoot,1);
 	} else {
