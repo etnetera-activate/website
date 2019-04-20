@@ -102,7 +102,7 @@ consoleQuest = function (step) {
 	// Step 1
 	if (window.location.pathname=="/" && step==undefined) {consoleQuest.notify (0,0)};
 	// Step 2
-	if (window.location.pathname=="/"&& step==undefined) {dataLayer.push=consoleQuestTexts[1]};
+	if (window.location.pathname=="/"&& step==undefined) {dataLayer.push(consoleQuestTexts[1])};
 }
 
 // Notification to console
@@ -117,7 +117,7 @@ var consoleQuestFirstLooted = 0;
 consoleQuest.treasure = function(){
 	var randomLoot = Math.floor(Math.random()*consoleQuestLoot.length);
 	if (consoleQuestFirstLooted == 0) {consoleQuest.notify(4,1); consoleQuestFirstLooted = 1};
-	if (consoleQuestLoot!=[]){
+	if (consoleQuestLoot.length == 0){
 		consoleQuest.notify(randomLoot,1,1);
 		consoleQuestLoot.splice(randomLoot,1);
 	} else {
