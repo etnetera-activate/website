@@ -117,7 +117,7 @@ var consoleQuestFirstLooted = 0;
 consoleQuest.treasure = function(){
 	var randomLoot = Math.floor(Math.random()*consoleQuestLoot.length);
 	if (consoleQuestFirstLooted == 0) {consoleQuest.notify(4,1); consoleQuestFirstLooted = 1};
-	if (consoleQuestLoot.length == 0){
+	if (consoleQuestLoot.length != 0){
 		consoleQuest.notify(randomLoot,1,1);
 		consoleQuestLoot.splice(randomLoot,1);
 	} else {
@@ -127,11 +127,11 @@ consoleQuest.treasure = function(){
 
 // Texts for notification to console
 var consoleQuestTexts = [
-	"Vítej poutníku!\n  Je to tady doste pěkný co? No tak taky jsme jako fakt krutopřísná firma.\n No každopádně není čas ztrácet čas a ryhle jukni do prvního elementu datový vrstvy Google Tag Manageru. Piece of cake, ne?",
-	"Tak se zase potkáváme. Vidím, že s technologií vod Googlu jsi moc dobře obeznámem. Pěkná práce. Každopádně pouze Google není živ člověk. Takže tady pro notifikaci eventů nepoužíváme dataLayer.push, ale funkci measure. Když si ji zavoláš s parametrem true, tak ti začne do konzole vypisovat, jaká data dostavá. Hustý ne? Teď se dobrodruhu vydej do země s fokama lidí, co u nás pracujou a vyhledej Lukáše Čecha, ten ti poradí, kudy dál. See ya.",
-	"Ahoj, Já jsem Lukáš Čech a jsem starý moudrý čaroděj a podobný pindy.",
-	"Piwik text",
-	"No tak totákně hustý. Poršel jsi všema zkouškama a poradit všechny draky. Můžu to jen gratulovat.\n Každopáně teď nějakej plk vo tom, ať nám napíšeš :-)\n A tvůj zasloužený poklad:",
+	"Vítej poutníče,\nvypadáš unaveně. Jistě tě sem, do naší putiky U černé konzole, dovedla dlouhá a náročná cesta.\nBohužel není času nazbyt. Měl bych pro tebe úkol hodný hrdiny. Hrdiny, jež se zrodí nejvýše jednou za generaci. Uprostřed tajemného labyrintu jménem webová analytika se skrývá cenný poklad.\nJsi odvážného ducha a troufneš si ho hledat? Pokud ano, pokud se nebojíš, vyhledej místo známé jako datová vrstva ve které vládne mocný krutovládce Google. Budu tam na tebe čekat.\nHodně štěstí!",
+	"Zdravím tě,\nprvní překážky jsi se nezalekl a překonal jsi ji bez zaváhání. To velmi rád vidím.\nDokázal jsi tím, že jsi moudrý a odvážný a dokážeš tedy uchopit to, co se ti hodlám předat. V království toho webu nevládne pouze Google, ale i jeho další bratři jako Adobe, Matomo a Snowplow. A každý z nich ale požaduje vybírat od svých poddaných data jiným způsobem. A co pak má dělat chudák bežná funkce, když musí odvést svůj datový desátek všem těmto mocnostem?\nVelký čaroděj pomocí svých mocných kouzel tedy přivedl k existenci funkci measure. Hodnou a dobrotivou funkci, která vybere data a přerozdělí je jednotlivým vládcům v podobách jaké požadují. Zavolej funkci measure.notify s parametrem true a udivíš, jaká data measure dostává.\nNyní musíš vyhledat samotného čaroděje dechberoucího Lukáše Čecha. Vyhledej jeho portrét a sleduj, co on předá dobréfunkci measure.\n/ Dokud nebude naimplementováno, tak zavolej measure({action:'slideShowMouseover', slideShowPerson:'Lukáš Čech'}) /",
+	"Kdo jsi a proč mě rušíš z mých meditací?\nPoklad? Ty si jdeš pro poklad? No to je velmi troufalé!\nNeřeknu ti, kde se poklad nachází, neb sám to nevím. Byl ukryt před dávnými časi, generace ho již nikdo nespatřil a mnozí již pochybují o jeho samé existenci.\nVím ale kde můžeš najít mapu k pokladu. Je skryta v pradávné jeskyni. Vchod do této jeskyně je schovaný pod hitem směřujícím do Matoma a otevřela se před okamžikem, když jsi rozpohyboval můj obraz.\nUtíkej, není čas ztrácet čas!",
+	"Poklad získá ten, kdo hrdě a beze strachu, nahlas pronese pradávná slova moci 'consoleQuest.treasure()'",
+	"Dokázal jsi to!\nPřekonal jsi všechna protiventví osudu, vahledal mocného čaroděje a nalezl mapu.\nPokud by jsi se chtěl v budoucnu zůčastnit nějaké výpravy s námi, pošli holuba do našeho hradu 'my@activate.cz' a třeba se společně vypravíme k pojhádkovému bohatství i nehynoucí slávě.\nNyní již ber svou zaslouženou odměnu hrdino. Ber dokud pokladnice nebude prázdná.",
 	"Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den."
 ];
 
