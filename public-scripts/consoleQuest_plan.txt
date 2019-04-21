@@ -110,3 +110,11 @@ Krok 5:
 
 
 Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den.
+
+------------------------------------------------------------
+
+Poklady:
+
+'Farář zpovídá kostelníka.\nKostelník mluví, mluví a když skončí, farář povídá: "A to je všechno? Kdo mi chodí na mešní víno?"\nKostelník na to: "Tady je nějak špatně slyšet, pane faráři."\n"Nelži, kostelníku! Pán tě slyší!"\n"Tak si to pojďte zkusit, pane faráři."\nTak se vyměněj, kostelník si sedne na farářovo místo a farář se jde zpovídat. Kostelník povídá:\n"Tak co, pane faráři, kdo mi chodí za ženou?"\n"Máš pravdu, kostelníku. Je tu nějak špatně slyšet."',
+'Pět lékařů je na lovu kachen. Praktický, dětský, psychiatr, chirurg a patolog.\nLetí kachna, praktický lékař zamíří a povídá: „Je to kachna? Možná ne, budu to muset prokonzultovat.“ Kachna mezitím uletí.\nLetí druhá kachna, dětský lékař zamíří: „Myslím, že je to kachna, ale co když má děti, musím to promyslet.“ Než se rozmyslí, kachna uletí.\nLetí další kachna, psychiatr zamíří: „Vím, že je to kachna, ale ví to i ona? Zná svoji identitu?“ Než to domyslí, kachna samozřejmě uletí.\nLetí další kachna, na řadě je chirurg, zamíří a kachnu střelí. Kachna spadne, chirurg se otočí na patologa a řekne: „Jděte se podívat, jestli to byla kachna.“',
+'Přijde muž nešťastnou náhodou o přirození a navštíví plastického chirurga s tím,zda by mohl získat nástroj nový. Doktor v operaci nevidí žádný problém. Jen je nutné vybrat velikost.\n"Máme tři druhy" vysvětluje a názorně na modelech ukazuje.\n"Malého, kterého jste měl zřejmě vy, za sedm tisíc, většího za patnáct a největšího za dvaadvacet tisíc.\nNež se ale rozhodnete s konečnou platností pro jednu z variant, možná by bylo dobré se poradit s manželkou."\nMuž doma přednese všechny tři varianty.\nŽena se zamyslí a nakonec odpoví:\n"Já bych radši novou kuchyň." ',
