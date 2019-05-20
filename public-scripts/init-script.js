@@ -15,7 +15,7 @@ e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min
 })(window, document, "script");
 */
 
-(function() {e = document.createElement("script"), m = document.getElementsByTagName("script")[0], e.async = 1,
+(function() {var e = document.createElement("script"), m = document.getElementsByTagName("script")[0]; e.async = 1;
 e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js"; m.parentNode.insertBefore(e, m);
 })();
 
