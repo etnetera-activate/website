@@ -8,6 +8,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-W6M9MSR')
 
+// Adobe measurement snippet
+(function(w,d,s,i){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);
+j.async=true;j.src='//assets.adobedtm.com/launch-'+i;f.parentNode.insertBefore(j,f);
+})(window,document,'script','EN369439769fd24f7fbeefe478be365ff9.min.js')
+
 // Matomo measurement snippet
 var _paq = window._paq || [];
 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -28,6 +33,7 @@ measure = function (data) {
 	measure.notify (data);
 	measure.add (data);
 	measure.google (data);
+	measure.adobe (data);
 	measure.matomo (data);
 }
 
@@ -97,7 +103,14 @@ measure.google = function (data){
 		data.event = data.action;
 	}
     dataLayer.push (data)
-}
+};
+
+// Measurement data transfer for Adobe
+measure.adobe = function (data){
+	if (data.action != undefined) {
+		_satellite.track("allDirectCalls", data)
+	}
+};
 
 // Measurement data tranfer for Matomo
 measure.matomo = function (data) {
