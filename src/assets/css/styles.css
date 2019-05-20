@@ -621,21 +621,36 @@ address {
     text-align: center;
     line-height: 20px;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
-    background: rgba(0, 0, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: .5s all;
     -moz-transition: .5s all;
     -webkit-transition: .5s all;
     -o-transition: .5s all;
 }
-.peoples:hover .image {
-    background: rgba(0, 0, 0, 0.5);
+.media .image-overlay {
+    margin: 0;
+    height: 284px;
+    width: 100%;
+    transition: .5s all;
+    -moz-transition: .5s all;
+    -webkit-transition: .5s all;
+    -o-transition: .5s all;
+    background-color: rgba(0, 0, 0, 0);
+}
+.peoples:hover .image-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .media .image:hover {
-    background: rgba(0, 0, 0, 0);
+    background-image: none!important;
 }
+.media .image-overlay:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .media h5 {
     color: #fff;
-    margin-top: 200px;
+    padding-top: 200px;
 }
 .media span {
     color: #fff;
@@ -967,4 +982,17 @@ address {
         top: -40px;
         opacity: 0.4;
     }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .media .image {
+        height: 254px;
+    }
+    .media .image-overlay {
+        height: 254px;
+    }
+    .media h5 {
+        padding-top: 170px;
+    }
+
 }

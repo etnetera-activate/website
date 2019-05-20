@@ -40,7 +40,7 @@ title: Jak & Kde nás můžete potkat
                     Etnetera Activate a.s.<br>
                     Classic 7 - budova E<br>
                     Jankovcova 1037/49, 170 00 Praha 7<br>
-                    <a href="#" data-toggle="modal" data-target="#billing">Fakturační údaje</a><br>
+                    <a onclick="measure({action:'contactsClick',contactsElementName:'Fakturační údaje'});return false;" href="#" data-toggle="modal" data-target="#billing">Fakturační údaje</a><br>
                 </address>
             </div>
         </div>
@@ -52,18 +52,17 @@ title: Jak & Kde nás můžete potkat
 </section>
 <section class="row social-wrapper">
     <div class="col">
-        <a href="https://medium.com/etnetera-activate" class="social-icon"><img src="<%= site.basePath %>/assets/imgs/social/medium.png" /><span>Blog</span></a>
+        <a href="https://medium.com/etnetera-activate" class="social-icon" data-walocation="contactsClick" data-walinkname="Medium"><img src="<%= site.basePath %>/assets/imgs/social/medium.png" /><span>Blog</span></a>
     </div>
     <div class="col">
-        <a href="#" class="social-icon" data-toggle="modal" data-target="#eventsCalendar"><img src="<%= site.basePath %>/assets/imgs/social/calendar.png" /><span>Kalendář</span></a>
+        <a onclick="measure({action:'contactsClick',contactsElementName:'Kalendář'}); return false;" href="#" class="social-icon" data-toggle="modal" data-target="#eventsCalendar"><img src="<%= site.basePath %>/assets/imgs/social/calendar.png" /><span>Kalendář</span></a>
     </div>
     <div class="col">
-        <a href="https://www.linkedin.com/company/etnetera-activate" class="social-icon"><img src="<%= site.basePath %>/assets/imgs/social/linkedin.png" /><span>Linkedin</span></a>
+        <a href="https://www.linkedin.com/company/etnetera-activate" class="social-icon" data-walocation="contactsClick" data-walinkname="Linkedin"><img src="<%= site.basePath %>/assets/imgs/social/linkedin.png" /><span>Linkedin</span></a>
     </div>
     <div class="col">
-        <a href="https://twitter.com/etneteractivate" class="social-icon"><img src="<%= site.basePath %>/assets/imgs/social/twitter.png" /><span>Twitter</span></a>
+        <a href="https://twitter.com/etneteractivate" class="social-icon" data-walocation="contactsClick" data-walinkname="Twitter"><img src="<%= site.basePath %>/assets/imgs/social/twitter.png" /><span>Twitter</span></a>
     </div>
-
 </section>
 <section class="row mb-5">
     <div class="col-sm-6 align-self-center">
@@ -75,10 +74,6 @@ title: Jak & Kde nás můžete potkat
         <p class="ml-md-5">Pravidelně se účastníme odborných konferencí nejen jako účastníci, ale také jako porotci nebo přednášející.
             Můžete nás pravidelně najít v porotě Internet Effectiveness Awards, WebTop100 nebo jako aktivní mentory Czechitas a Vodafone nápad roku.
         </p>
-        <!-- Button trigger modal -->
-        <a href="#" class="ml-5 btn " data-toggle="modal" data-target="#eventsCalendar">
-            Kalendář akcí &raquo;
-        </a>
     </div>
 </section>
 <section class="row mb-5">
