@@ -9,9 +9,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W6M9MSR')
 
 // Adobe measurement snippet
+/*
 (function(a, k, t, e, m) {e = k.createElement(t),m = k.getElementsByTagName(t)[0],e.async = 1,
 e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js";m.parentNode.insertBefore(e, m);
-})(window, document, "script",);
+})(window, document, "script");
+*/
+
+(function() {e = document.createElement("script"), m = document.getElementsByTagName("script")[0], e.async = 1,
+e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js"; m.parentNode.insertBefore(e, m);
+})();
 
 // Matomo measurement snippet
 var _paq = window._paq || [];
