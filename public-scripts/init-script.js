@@ -21,6 +21,7 @@ _paq.push(['enableLinkTracking']);
 	g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
 })();
 
+_paq.push(['trackPageView']);
 
 // Main measure function
 measure = function (data) {
@@ -45,8 +46,7 @@ measure.notify = function (data){
 
 			// For consoleQuest step 3
 			var consoleQuest3;
-			if (data.action=="slideShowMouseover" && data.slideShowPerson=="Lukáš Čech") {consoleQuest3 = "\n\n"+consoleQuestTexts[2]};
-			if (data.action=="portraitClick" && data.slideShowPerson=="Lukáš Čech") {consoleQuest3 = "\n\n"+consoleQuestTexts[2]};
+			if (data.action=="portraitClick" && data.portraitPerson=="Lukáš Čech") {consoleQuest3 = "\n\n"+consoleQuestTexts[2]};
 
 			if (measureLog == "true"){
 				console.group();
@@ -118,19 +118,12 @@ measure.matomo = function (data) {
 			case 'anchorClick':
 					_paq.push(['trackEvent', 'Anchor Click', data.anchorName, undefined]);
 					break;
-			case 'slideShowMouseover':
-					// consoleQuest step 4
-					if (data.slideShowPerson == "Lukáš Čech"){
-							_paq.push(['setCustomDimension', 0, "Poklad získá ten, kdo hrdě a beze strachu, nahlas pronese pradávná slova moci 'consoleQuest.treasure()'"]);
-					};
-					_paq.push(['trackEvent', 'Portrait Slide Show Mouseover', data.slideShowPerson, undefined]);
-					break;
 			case 'portraitClick':
 					// consoleQuest step 4
-					if (data.slideShowPerson == "Lukáš Čech"){
+					if (data.portraitPerson == "Lukáš Čech"){
 							_paq.push(['setCustomDimension', 0, "Poklad získá ten, kdo hrdě a beze strachu, nahlas pronese pradávná slova moci 'consoleQuest.treasure()'"]);
 					};
-					_paq.push(['trackEvent', 'Portrait Click', data.slideShowPerson, undefined]);
+					_paq.push(['trackEvent', 'Portrait Click', data.portraitPerson, undefined]);
 					break;
 			default:
 					measure.notify ('No instructions for Matomo with action: "' + data.action + '"');
@@ -173,7 +166,7 @@ consoleQuest.treasure = function(){
 var consoleQuestTexts = [
 	"Vítej poutníče,\nvypadáš unaveně a jistě tě sem, do naší putiky U černé konzole, dovedla dlouhá a náročná cesta.\nBohužel není času nazbyt. Měl bych pro tebe úkol hodný hrdiny. Hrdiny, jež se zrodí nejvýše jednou za generaci. Uprostřed tajemného labyrintu jménem webová analytika se skrývá cenný poklad.\nJsi odvážného ducha a troufneš si ho hledat? Pokud ano, pokud se nebojíš, vyhledej místo známé jako datová vrstva ve které vládne mocný krutovládce Google. Budu tam na tebe čekat.\nHodně štěstí!",
 	"Znovu se setkáváme poutníče,\nprvní překážky jsi se nezalekl a překonal jsi ji bez zaváhání. To velmi rád vidím.\nDokázal jsi tím, že jsi moudrý a odvážný, ale především že dokážeš uchopit tajemství, které ti hodlám předat.\nV království tohoto webu nevládne pouze Google, ale i jeho další bratři jako Adobe, Matomo a Snowplow. A každý z nich ale požaduje vybírat od svých poddaných data jiným způsobem. A co pak má dělat chudák bežná funkce, když musí odvést svůj datový desátek všem těmto mocnostem?\nVelký čaroděj pomocí svých mocných kouzel tedy přivedl k existenci funkci measure. Hodnou a dobrotivou funkci, která vybere data a přerozdělí je jednotlivým vládcům v podobách jaké požadují. Zavolej funkci measure.notify s parametrem true a uvidíš, jaká data measure dostává.\nNyní musíš vyhledat samotného čaroděje dechberoucího Lukáše Čecha. Vyhledej jeho portrét a sleduj, co on předá spravedlivé funkci measure.",
-	"Kdo jsi a proč mě rušíš z mých meditací?\nPoklad? Ty si jdeš pro poklad? No to je velmi troufalé!\nNeřeknu ti, kde se poklad nachází, neb sám to nevím. Byl ukryt před dávnými časi, generace ho již nikdo nespatřil a mnozí již pochybují o jeho samé existenci.\nVím ale kde můžeš najít mapu k pokladu. Je skryta v pradávné jeskyni. Vchod do této jeskyně je schovaný pod hitem směřujícím do Matoma a otevřela se před okamžikem, když jsi rozpohyboval můj obraz.\nUtíkej, není čas ztrácet čas!\n/ Dokud nebude naimplementováno Matomo, tak hledej GA collect /",
+	"Kdo jsi a proč mě rušíš z mých meditací?\nPoklad? Ty si jdeš pro poklad? No to je velmi troufalé!\nNeřeknu ti, kde se poklad nachází, neb sám to nevím. Byl ukryt před dávnými časi, generace ho již nikdo nespatřil a mnozí již pochybují o jeho samé existenci.\nVím ale kde můžeš najít mapu k pokladu. Je skryta v pradávné jeskyni. Vchod do této jeskyně je schovaný pod hitem směřujícím do Matoma a otevřela se před okamžikem, když jsi kliknul na můj obraz.\nUtíkej, není čas ztrácet čas!\n/ Dokud nebude naimplementováno Matomo, tak hledej GA collect /",
 	"Poklad získá ten, kdo hrdě a beze strachu nahlas pronese pradávná slova moci 'consoleQuest.treasure()'",
 	"Dokázal jsi to!\nPřekonal jsi všechna protiventví osudu, vyhledal jsi mocného čaroděje a nalezl mapu dávno ztraceného pokladu.\nPokud by ses v budoucnu chtěl zúčastnit nějaké výpravy s námi, pošli holuba do našeho hradu 'my@activate.cz' a třeba se společně vypravíme k pohádkovému bohatství i nehynoucí slávě.\nNyní již ber svou zaslouženou odměnu hrdino. Ber dokud pokladnice nebude prázdná.",
 	"Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den."
