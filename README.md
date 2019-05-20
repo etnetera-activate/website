@@ -7,5 +7,5 @@ node ./scripts/build
 
 ## For live reloading server, run
 ```
-node node ./live-server.js
+node ./live-server.js
 ```

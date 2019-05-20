@@ -60,6 +60,7 @@
 			errorName: "",
 			errorEmail: "",
             sent: false,
+            timer: [],
 		},
 		methods: {
             setActiveTechnology: function(technology){
@@ -92,8 +93,16 @@
 			storeMessage: function () {
 				const url = "https://us-central1-activate-website-2.cloudfunctions.net/saveMessage?message=" + encodeURIComponent(this.message) +  "&email=" + encodeURIComponent(this.email) + "&name=" + encodeURIComponent(this.name);
                 console.log("Storing message " + this.message + " for " + this.email + " name: " + this.name);
-                console.log(url)
-                // ulozeni message
+                //console.log(url)
+				measure ({
+					action: "contactFormSent",
+                    name: this.name,
+                    email: this.email,
+                    message: this.message
+			    })
+
+
+				// ulozeni message
                 this.$http.get(url).then(
                     response => {
                         this.sent = true;
@@ -106,17 +115,15 @@
                     }
                 );
 			},
-            photoEnter: function(people){
-            	console.log('enter');
+            photoEnter: function(people, index){
                 for(let i=1; i <= people.photos; i++) {
-                    setTimeout(function(){
-                        console.log(i);
+                    this.timer[index] = setTimeout(function(){
                         people.actualPhoto = people.short.toLowerCase() + i;
                     }, i*500);
                 }
             },
-            photoLeave: function(people){
-	            console.log('leave');
+            photoLeave: function(people, index){
+            	clearTimeout(this.timer[index]);
             	people.actualPhoto = people.short.toLowerCase() + '1';
             }
 		},
@@ -181,13 +188,38 @@
 
 				})
             }
+			this.$nextTick(function () {
+				//image preloading
+				if(window.location.pathname === '/') {
+					//let images = [];
+                    let cssText = '';
+					for (let i = 0; i < _.size(this.peoples); i++) {
+
+						if(this.peoples[i].photos !== undefined) {
+							//images[i] = [];
+							for (let x = 0; x < this.peoples[i].photos; x++) {
+								if(cssText !== '') {
+									cssText = cssText + ", ";
+                                }
+								//images[i][x] = new Image();
+								let num = x + 1;
+								//images[i][x].src = "/assets/imgs/peoples/mini/" + this.peoples[i].short.toLowerCase() + num +"-min.jpg";
+								cssText = cssText + "url('/assets/imgs/peoples/mini/" + this.peoples[i].short.toLowerCase() + num +"-min.jpg')";
+							}
+                        }
 
 
-			//image preloading
-            if(window.location.pathname === '') {
-            	console.log('test');
-            }
 
+					}
+                    let div = document.createElement("div");
+					div.style.backgroundImage = cssText;
+					div.style.height = '0px';
+					div.style.width = '0px';
+					document.body.appendChild(div);
+					//console.log(cssText);
+
+				}
+            })
 
 		},
 	})

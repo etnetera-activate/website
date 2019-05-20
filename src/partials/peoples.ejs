@@ -3,16 +3,22 @@
     <h2 class="ml-md-5">Lidé a jejich příběhy</h2>
     <div class="row">
         <a v-for="(member, index) in peoples"
-           :class="'col-md-2 media name-'+ index"
+           :class="'col-6 col-sm-6 col-md-3 col-lg-2 media name-'+ index"
            href="#"
            data-toggle="modal"
            :data-target="'#peopleModal-'+ index"
-           :style="'background-image: url(/assets/imgs/peoples/'+ member.actualPhoto +'.jpg)'"
+           :style="'background-image: url(/assets/imgs/peoples/mini/'+ member.actualPhoto +'-min.jpg)'"
+           :onclick="'measure({action:\'portraitClick\',portraitPerson:\'' + member.name +' '+ member.lastname +'\'})'"
            >
-            <div class="image" v-on:mouseenter="photoEnter(member)"
-                 v-on:mouseleave="photoLeave(member)">
-                <h5>{{member.name}} {{member.lastname}}</h5>
-                <span>{{member.position}}</span>
+            <div class="image"
+                 v-on:mouseenter="photoEnter(member, index)"
+                 v-on:mouseleave="photoLeave(member, index)"
+                 :style="'background-image: url(/assets/imgs/peoples/mini/' + member.short.toLowerCase() + '1-min.jpg)'"
+            >
+                <div class="image-overlay">
+                    <h5>{{member.name}} {{member.lastname}}</h5>
+                    <span>{{member.position}}</span>
+                </div>
             </div>
         </a>
     </div>
@@ -34,11 +40,16 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md mb-2"><img :src="'/assets/imgs/peoples/'+ member.short.toLowerCase() +'1.jpg'" :alt="member.name + member.lastname" /></div>
+                    <div class="col-md mb-2">
+                        <img :src="'/assets/imgs/peoples/'+ member.short.toLowerCase() +'1.jpg'" :alt="member.name + member.lastname" />
+                    </div>
                     <div class="col-md aboutMember">
-                        <div><strong>Hodnost: </strong><span class="underline">{{member.position}}</span></div>
-                        <div><strong>Přjmení: </strong><span class="underline">{{member.lastname}}</span><br /></div>
-                        <div><strong>Křestní jméno: </strong><span class="underline">{{member.name}}</span><br /></div>
+                        <div><strong>Hodnost: </strong><span>{{member.position}}</span></div>
+                        <div><strong>Přjmení: </strong><span>{{member.lastname}}</span></div>
+                        <div><strong>Křestní jméno: </strong><span>{{member.name}}</span></div>
+                        <div><strong>E-mail: </strong><a :href="'mailto:'+ member.mail">{{member.mail}}</a></div>
+                        <div><a v-if="member.linkedin" :href="member.linkedin">LinkedIn</a> <a v-if="member.twitter" :href="member.twitter">Twitter</a></div>
+
                         <p class="mt-2">{{member.aboutcs}}</p>
                     </div>
                 </div>
