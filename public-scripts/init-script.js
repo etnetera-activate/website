@@ -9,9 +9,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W6M9MSR')
 
 // Adobe measurement snippet
-(function(w,d,s,i){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);
-j.async=true;j.src='//assets.adobedtm.com/launch-'+i;f.parentNode.insertBefore(j,f);
-})(window,document,'script','EN369439769fd24f7fbeefe478be365ff9.min.js')
+(function(a, k, t, e, m) {e = k.createElement(t),m = k.getElementsByTagName(t)[0],e.async = 1,
+e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js";m.parentNode.insertBefore(e, m);
+})(window, document, "script",);
 
 // Matomo measurement snippet
 var _paq = window._paq || [];
