@@ -21,7 +21,6 @@ _paq.push(['enableLinkTracking']);
 	g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
 })();
 
-_paq.push(['trackPageView']);
 
 // Main measure function
 measure = function (data) {
@@ -91,6 +90,8 @@ measure.deepMerge = function (orgData, newData) {
 };
 
 // Measurement data transfer for Google
+_paq.push(['trackPageView']);
+
 measure.google = function (data){
 	if (data.action != undefined) {
 		data.event = data.action;
