@@ -121,7 +121,7 @@ measure.matomo = function (data) {
 			case 'portraitClick':
 					// consoleQuest step 4
 					if (data.portraitPerson == "Lukáš Čech"){
-							_paq.push(['setCustomDimension', 0, "Poklad získá ten, kdo hrdě a beze strachu, nahlas pronese pradávná slova moci 'consoleQuest.treasure()'"]);
+							_paq.push(['setCustomDimension', 1, "Poklad získá ten, kdo hrdě a beze strachu, nahlas pronese pradávná slova moci 'consoleQuest.treasure()'"]);
 					};
 					_paq.push(['trackEvent', 'Portrait Click', data.portraitPerson, undefined]);
 					break;
