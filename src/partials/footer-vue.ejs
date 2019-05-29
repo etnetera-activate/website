@@ -6,6 +6,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="<%= site.basePath %>/assets/js/lodash.js"></script>
+<script src="<%= site.basePath %>/assets/js/cookieconsent.js"></script>
 <script>
 	$(document).on("scroll", function() {
 
@@ -155,21 +156,12 @@
 			}
 
 			if (this.now - this.timestamp > 86400000) {
-				this.$nextTick(function () {
 
 					fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fetnetera-activate&api_key=vxx13alxnggbzfqugtped2fmbwko53ry1c8lafmz")
 						.then(r => r.json())
 						.then(json => {
 							this.mediumArticles=json.items;
 							localStorage.setItem('medium', JSON.stringify(json.items));
-							localStorage.setItem('timestamp', Date.now().toString());
-						});
-
-					fetch("https://script.googleusercontent.com/macros/echo?user_content_key=PIWnqPW7MINDfCMi3MA3ONV3e9946Z0o161Pu70qhRszyiN9O4ZQUzoG2B3IzfBI7t5xb4CQGBL_746TnhaZQg8_3s9Y06yjm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNoCG7GpPNwSStVj--8-HB--L7N9_oPRegNG9Uhx8Qnc81eWmPYQOHMHfKi-9igU5qYZUYAg7cnB&lib=MyBl3eZNahTjJQ234MT9mYbQDS-WXaoVM")
-						.then(data => data.json())
-						.then(json => {
-							this.calendar = json;
-							localStorage.setItem('calendar', JSON.stringify(json));
 							localStorage.setItem('timestamp', Date.now().toString());
 						});
 
@@ -186,25 +178,24 @@
 							localStorage.setItem('timestamp', Date.now().toString());
 						});
 
-				})
             }
 			this.$nextTick(function () {
 				//image preloading
 				if(window.location.pathname === '/') {
 					//let images = [];
                     let cssText = '';
-					for (let i = 0; i < _.size(this.peoples); i++) {
+					for (let i = 0; i < _.size(this.people); i++) {
 
-						if(this.peoples[i].photos !== undefined) {
+						if(this.people[i].photos !== undefined) {
 							//images[i] = [];
-							for (let x = 0; x < this.peoples[i].photos; x++) {
+							for (let x = 0; x < this.people[i].photos; x++) {
 								if(cssText !== '') {
 									cssText = cssText + ", ";
                                 }
 								//images[i][x] = new Image();
 								let num = x + 1;
 								//images[i][x].src = "/assets/imgs/peoples/mini/" + this.peoples[i].short.toLowerCase() + num +"-min.jpg";
-								cssText = cssText + "url('/assets/imgs/peoples/mini/" + this.peoples[i].short.toLowerCase() + num +"-min.jpg')";
+								cssText = cssText + "url('/assets/imgs/peoples/mini/" + this.people[i].short.toLowerCase() + num +"-min.jpg')";
 							}
                         }
 

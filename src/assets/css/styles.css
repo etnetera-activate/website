@@ -614,6 +614,9 @@ address {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.media:hover {
+    text-decoration: none;
+}
 
 .media .image {
     height: 284px;
