@@ -5,6 +5,778 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects":[
+      {
+        "source": "/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/1553-2-fitbit-hr-review/",
+        "destination": "https://medium.com/etnetera-activate/zkusenosti-s-naramkem-fitbit-charge-hr-719ad461e0aa",
+        "type": 301
+      },
+      {
+        "source": "/kontakty/",
+        "destination": "/jak-a-kde",
+        "type": 301
+      },
+      {
+        "source": "/reference/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/6-zasad-spravne-zakaznicke-podpory/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/chytry-emailing/",
+        "destination": "/emailing",
+        "type": 301
+      },
+      {
+        "source": "/blog/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/jak-presny-je-similar-web/",
+        "destination": "https://medium.com/etnetera-activate/jak-presny-je-similar-web-ba353685cdb3",
+        "type": 301
+      },
+      {
+        "source": "/filozofie-nasi-prace/",
+        "destination": "/klient/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/ppl/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/zasadni-zmena-e-mail-seznam-cz-zobrazuje-obrazky/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/54933-activate_life_140717_spamove_pasti/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/ux/",
+        "destination": "/digitalni-maturita/",
+        "type": 301
+      },
+      {
+        "source": "/digitalni-analytika/",
+        "destination": "/webova-analytika/",
+        "type": 301
+      },
+      {
+        "source": "/en/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/analyza-dat-datamining/",
+        "destination": "/data/",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/ikea-rfm-analysis/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/contacts/",
+        "destination": "/jak-a-kde",
+        "type": 301
+      },
+      {
+        "source": "/rozesilate-hromadne-e-maily-a-mohla-bych-je-videt/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/case_study_ikea_family/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/co-prinesou-zmeny-na-seznam-cz-pro-e-mail-marketery/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/povinny-dkim-na-seznam-cz-co-znamena-pro-marketery/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/optimalizace-a-testovani/",
+        "destination": "/webova-analytika/",
+        "type": 301
+      },
+      {
+        "source": "/personalizace/",
+        "destination": "/emailing/",
+        "type": 301
+      },
+      {
+        "source": "/member/jiri-stepan/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/checklist-pred-spustenim-eshopu/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/data-mining-and-data-analysis/",
+        "destination": "/data/",
+        "type": 301
+      },
+      {
+        "source": "/53934-activate_life_140620_vylepsena_ecommerce_v_google_analytics/",
+        "destination": "https://medium.com/etnetera-activate/vylepsena-ecommerce-v-google-analytics-8350a65791e0",
+        "type": 301
+      },
+      {
+        "source": "/piwik-vs-google-analytics-vs-adobe-analytics/",
+        "destination": "https://medium.com/etnetera-activate/piwik-vs-google-analytics-vs-adobe-analytics-3b83ad86ee17",
+        "type": 301
+      },
+      {
+        "source": "/jak-by-nemel-vypadat-brief/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/bata-produktova-segmentace-a-rfm-analyza/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/smart-emailing/",
+        "destination": "/emailing/",
+        "type": 301
+      },
+      {
+        "source": "/mailchimp-spravil-reportovani-spamu-ze-seznamu/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/member/hana-kalivodova/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/en/our-team/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/ikea-analyza-rfm/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/our-work-philosophy/",
+        "destination": "/klient/",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/bata-produktova-segmentace-a-rfm-analyza-2/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/annonce/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/privacy/",
+        "destination": "/privacy",
+        "type": 301
+      },
+      {
+        "source": "/gdpr-z-par-jinych-uhlu-pohledu/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/references/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/member/marek-kulkovsky/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/pomocne-nastroje-pro-e-mailing/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/hackathon-v-activate-kabate/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vsichni-chteji-do-o2-ux-design-proces/",
+        "destination": "https://medium.com/etnetera-activate/vsichni-chteji-do-o2-ux-design-webu-80368bd8db6c",
+        "type": 301
+      },
+      {
+        "source": "/en/proposal-for-online-projects-from-a-to-z/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/marketing-festival-2016/",
+        "destination": "https://medium.com/etnetera-activate/marketing-festival-2016-festival-jak-cyp-2a900063acfd",
+        "type": 301
+      },
+      {
+        "source": "/jak-usetrit-57-nakladu-na-e-mailing/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/member/lenka-cvancarova/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/velka-data-velke-penize-vse-v-oblacich/",
+        "destination": "https://medium.com/etnetera-activate/velk%C3%A1-data-velk%C3%A9-pen%C3%ADze-v%C5%A1e-v-oblac%C3%ADch-ae85ecb1b39",
+        "type": 301
+      },
+      {
+        "source": "/category/chytry-emailing/",
+        "destination": "/emailing/",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/digitalni-analytika-pro-csob/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/category/bezkategorie/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/page-scoring-pro-zuno-bank/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/marketing-festival-2017-z-jineho-uhlu/",
+        "destination": "https://medium.com/etnetera-activate/marketing-festival-2017-z-jineho-uhlu-pohledu-6cbce009eeb7",
+        "type": 301
+      },
+      {
+        "source": "/jak-jsme-predelavali-appmixer/",
+        "destination": "https://medium.com/etnetera-activate/jak-jsme-predelavali-appmixer-ux-design-proces-1e23ca6df0c2",
+        "type": 301
+      },
+      {
+        "source": "/adobe-summit-emea-2018/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/do-prace-na-kole-s-velkym-r-s-daty-ze-strava-com/",
+        "destination": "https://medium.com/etnetera-activate/do-prace-na-kole-s-velkym-r-a-daty-ze-strava-8dd07fc8a7c7",
+        "type": 301
+      },
+      {
+        "source": "/holky_data/",
+        "destination": "https://medium.com/etnetera-activate/holky-data-5a2ab1cc7edf",
+        "type": 301
+      },
+      {
+        "source": "/ux-ve-virtualni-realite-prezentace-z-ux-monday/",
+        "destination": "https://medium.com/etnetera-activate/ux-ve-virtu%C3%A1ln%C3%AD-realit%C4%9B-prezentace-z-ux-monday-ea557425fa3b",
+        "type": 301
+      },
+      {
+        "source": "/45500-activate_life_130306_neni_dulezite_zucastnit_se_ale_vyhrat/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/page-scoring-for-zuno/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/gratulujeme-emailing-vam-vydelal-434-443-kc-skoro-mozna/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/sdi/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/40736-activate_life_120910_tag_management/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/lce/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/22031-activate_life_091124_klicove_ukazatele_uspesnosti_webu/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/cislo-tydne-50-odmen-si-delime-podle-sveho/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/lenka/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/web-salesforce-pro-ccs/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/53728-activate_life_140515_jak_angazovanost_ovlivnuje_spam/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/category/analyza-dat/",
+        "destination": "https://medium.com/etnetera-activate/tagged/data-analysis",
+        "type": 301
+      },
+      {
+        "source": "/en/digital-analytics/",
+        "destination": "/webova-analytika/",
+        "type": 301
+      },
+      {
+        "source": "/hledame-digitalniho-analytika/",
+        "destination": "https://www.cocuma.cz/job/webovy-analytik/1395/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/tka/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/aktivace-online-prodeje-dr-max/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/spam-rate-0/",
+        "destination": "https://medium.com/etnetera-activate/zero-spam-rate-5c45e7dec5ea",
+        "type": 301
+      },
+      {
+        "source": "/member/michal-kardas/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/digital-analytics-for-csob/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/hledame-emailing-ninju/",
+        "destination": "https://www.cocuma.cz/company/activate/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/pto/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/nejprehlednejsi-nakupni-kosik-ma-datart/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/category/digital-analytics/",
+        "destination": "https://medium.com/etnetera-activate/tagged/data-analysis",
+        "type": 301
+      },
+      {
+        "source": "/en/no-more-unsubscribing-of-litmus-application/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/member/roman-lowinger/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/narust-spamu-na-seznamu/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/personalizace-eshopu-prezentace-e-business-forum-2014/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/datart/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/stopadesaty-report-z-marketing-festivalu/",
+        "destination": "https://medium.com/etnetera-activate/stopadesaty-report-z-marketing-festivalu-8f84110d95cb",
+        "type": 301
+      },
+      {
+        "source": "/measurecamp-prague-2017/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/hka/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/albert/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/ing-pojistovna/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/czechitas-na-stazi/",
+        "destination": "https://medium.com/etnetera-activate/czechitas-na-stazi-v-etnetera-activate-84ff2b76cb2d",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/fha/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/category/digitalni-analytika/",
+        "destination": "https://medium.com/etnetera-activate/tagged/data-analysis",
+        "type": 301
+      },
+      {
+        "source": "/category/personalizace-officialni/",
+        "destination": "https://medium.com/etnetera-activate/pruvodce-e-mail-marketingem/home",
+        "type": 301
+      },
+      {
+        "source": "/en/blog/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/puma/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/gdpr-checklist/revize-nastaveni-analytiky/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/mailchimp-me-zablokoval-jdu-pryc/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/jst/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/ceske-aerolinie/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/o2-czech-republic/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/pozadi-male-naborove-kampane/",
+        "destination": "https://medium.com/etnetera-activate/pozadi-male-naborove-kampane-web-analytiku-e2216aa4fe57",
+        "type": 301
+      },
+      {
+        "source": "/?portfolio=web-salesforce-pro-ccs",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/blog/page/2/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/en/optimization-of-online-projects/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/zuno-bank/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/allianz-autopojisteni/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/allianz-pojistovna/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/allianz/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/bata/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/eset-software/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/marimex/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/puma/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/tag/etn-akce/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/50281-activate_life_131120_banky_prizpusobte_weby/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/blog/page/3/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/category/optimalizace-online-projektu/page/3/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/cislo-tydne-open-rate-47-nebo-click-rate-22-zadny-problem/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/member/juraj-guran/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/allianz-pojistovna/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/complete-makeover-of-albert-supermarkets-website/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/ing-pojistovna/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/gdpr-checklist/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/juraj-guran-grafik-webdesigner/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/ondrej-bartos-hledam-firmu-ktera-zmeni-svet/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/zlepsovani-online-businessu-firmy-econsulting/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/zuno-bank/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/r/faq",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/uz-zadne-odhlasovani-aplikace-litmus/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vanocni-fedora-release-party/",
+        "destination": "https://medium.com/etnetera-activate/vanocni-fedora-release-party-83a6ff3cbc2a",
+        "type": 301
+      },
+      {
+        "source": "/19136-activate_life_090522_gaac/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/46638-activate_life_130607_digital_je_o_spolupraci/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/54933-activate_life_140717_spamove_pasti/?fbclid=IwAR0iRc6ajYr1TTMojoo96Yd61zj8h4KJ67VN73rsKvaC_bniN9nOYOvBCws",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      },
+      {
+        "source": "/adobe-summit-2016/",
+        "destination": "https://medium.com/etnetera-activate/adobe-summit-emea-2016-27134bcf7c3",
+        "type": 301
+      },
+      {
+        "source": "/category/chytry-emailing/page/2/",
+        "destination": "https://medium.com/etnetera-activate/pruvodce-e-mail-marketingem/home",
+        "type": 301
+      },
+      {
+        "source": "/category/navrh-online-projektu/",
+        "destination": "https://medium.com/etnetera-activate/tagged/ux-design",
+        "type": 301
+      },
+      {
+        "source": "/category/segmentace/",
+        "destination": "https://medium.com/etnetera-activate/tagged/data-analysis",
+        "type": 301
+      },
+      {
+        "source": "/en/personalization/",
+        "destination": "/emailing",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/bata/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/eset-software/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/en/portfolio/o2-czech-republic/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/member/pavel-pola/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/nas-tym/ppl/page/2/",
+        "destination": "/#nas-tym",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/jt-banka/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/jt-group/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/play/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/postova-banka/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/puma/",
+        "destination": "/#reference",
+        "type": 301
+      },
+      {
+        "source": "/tag/asistovane-konverze/",
+        "destination": "https://medium.com/etnetera-activate",
+        "type": 301
+      }
     ]
   }
 }
