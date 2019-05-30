@@ -16,5 +16,8 @@
     "request": "^2.88.0",
     "xmlbuilder": "^11.0.0"
   },
+  "engines": {
+    "node": "8"
+  },
   "private": true
 }
