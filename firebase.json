@@ -203,11 +203,6 @@
         "type": 301
       },
       {
-        "source": "/privacy/",
-        "destination": "/privacy",
-        "type": 301
-      },
-      {
         "source": "/gdpr-z-par-jinych-uhlu-pohledu/",
         "destination": "/",
         "type": 301
