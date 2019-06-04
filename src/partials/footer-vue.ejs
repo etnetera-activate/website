@@ -63,6 +63,7 @@
 			errorEmail: "",
             sent: false,
             timer: [],
+            confirm: "Váš požadavek na zničení světa byl zaznamenán. O jeho stavu Vás budeme informovat. Děkujeme.",
 		},
 		methods: {
             setActiveTechnology: function(technology){
@@ -102,6 +103,9 @@
                     email: this.email,
                     message: this.message
 			    })
+                if (this.message === "DYCKYMAIL") {
+                	this.confirm = "Výtečně. Zase o @ blíže.";
+                }
 
 
 				// ulozeni message

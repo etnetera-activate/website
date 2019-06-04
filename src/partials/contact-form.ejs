@@ -7,7 +7,7 @@
         <div class="letter-wrapper">
             <div class="letter">
                 <div class="alert alert-success" role="alert" v-if="sent">
-                    Váš požadavek na zničení světa byl zaznamenán. O jeho stavu Vás budeme informovat. Děkujeme.
+                    {{confirm}}
                 </div>
                 <form class="row text-left" novalidate="true" @submit.prevent="checkForm">
                     <div class="col-lg-5 offset-lg-1 col-md-6 d-none d-sm-block">
