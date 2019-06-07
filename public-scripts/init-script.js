@@ -49,7 +49,7 @@ measure.notify = function (data){
 			var measureLog = localStorage.getItem("measureLog");
 
 			// For consoleQuest step 3
-			var consoleQuest3;
+			var consoleQuest3 = "";
 			if (data.action=="portraitClick" && data.portraitPerson=="Lukáš Čech") {consoleQuest3 = "\n\n"+consoleQuestTexts[2]};
 
 			if (measureLog == "true"){
