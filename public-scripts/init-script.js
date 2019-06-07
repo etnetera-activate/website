@@ -9,12 +9,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W6M9MSR')
 
 // Adobe measurement snippet
-/*
-(function(a, k, t, e, m) {e = k.createElement(t),m = k.getElementsByTagName(t)[0],e.async = 1,
-e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js";m.parentNode.insertBefore(e, m);
-})(window, document, "script");
-*/
-
 !function(){var e = document.createElement("script");var m = document.getElementsByTagName("script")[0];e.async = 1;
 e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js";m.parentNode.insertBefore(e, m)
 }();
@@ -35,7 +29,6 @@ _paq.push(['enableLinkTracking']);
 
 // Main measure function
 measure = function (data) {
-
 	measure.notify (data);
 	measure.add (data);
 	measure.google (data);
@@ -184,9 +177,9 @@ consoleQuest.treasure = function(){
 
 // Texts for notification to console
 var consoleQuestTexts = [
-	"Vítej poutníče,\nvypadáš unaveně a jistě tě sem, do naší putiky U černé konzole, dovedla dlouhá a náročná cesta.\nBohužel není času nazbyt. Měl bych pro tebe úkol hodný hrdiny. Hrdiny, jež se zrodí nejvýše jednou za generaci. Uprostřed tajemného labyrintu jménem webová analytika se skrývá cenný poklad.\nJsi odvážného ducha a troufneš si ho hledat? Pokud ano, pokud se nebojíš, vyhledej místo známé jako datová vrstva ve které vládne mocný krutovládce Google. Budu tam na tebe čekat.\nHodně štěstí!",
-	"Znovu se setkáváme poutníče,\nprvní překážky jsi se nezalekl a překonal jsi ji bez zaváhání. To velmi rád vidím.\nDokázal jsi tím, že jsi moudrý a odvážný, ale především že dokážeš uchopit tajemství, které ti hodlám předat.\nV království tohoto webu nevládne pouze Google, ale i jeho další bratři jako Adobe, Matomo a Snowplow. A každý z nich ale požaduje vybírat od svých poddaných data jiným způsobem. A co pak má dělat chudák bežná funkce, když musí odvést svůj datový desátek všem těmto mocnostem?\nVelký čaroděj pomocí svých mocných kouzel tedy přivedl k existenci funkci measure. Hodnou a dobrotivou funkci, která vybere data a přerozdělí je jednotlivým vládcům v podobách jaké požadují. Zavolej funkci measure.notify s parametrem true a uvidíš, jaká data measure dostává.\nNyní musíš vyhledat samotného čaroděje dechberoucího Lukáše Čecha. Vyhledej jeho portrét a sleduj, co on předá spravedlivé funkci measure.",
-	"Kdo jsi a proč mě rušíš z mých meditací?\nPoklad? Ty si jdeš pro poklad? No to je velmi troufalé!\nNeřeknu ti, kde se poklad nachází, neb sám to nevím. Byl ukryt před dávnými časi, generace ho již nikdo nespatřil a mnozí již pochybují o jeho samé existenci.\nVím ale kde můžeš najít mapu k pokladu. Je skryta v pradávné jeskyni. Vchod do této jeskyně je schovaný pod hitem směřujícím do Matoma a otevřela se před okamžikem, když jsi kliknul na můj obraz.\nUtíkej, není čas ztrácet čas!",
+	"Vítej poutníče,\njistě tě sem, do naší putiky U černé konzole, dovedla dlouhá a náročná cesta. Pohodlně se tedy usaď a vydechni.\nVypadáš jako někdo, komu bych mohl svěřit prastaré tajemnství. Ač se to na první pohled může zdát podivuhodné, nacházejí se v tomto kraji úžasné poklady.\nJsi odvážného ducha a troufneš si některý z nich hledat?\n\nJeden je ukryt prostřed labyrintu jménem webová analytika. Svou cestu započni na místě známém jako datová vrstva, kterou ovládá mocný krutovládce Google.\n\nDruhý hlídají rytíři fanatického řádu ANTI SPAM. Najdi na webu jeden mocný e-mailingový nástroj a podrobně prozkoumej jeho emblém.\n\nZvol cestu, která je blízká tvému srdci a já budu doufat, že se tam s tebou znovu setkám.\nHodně štěstí!",
+	"Rád tě vidím poutníče,\nprvní překážky jsi se nezalekl a překonal jsi ji bez zaváhání. To mě velmi těší.\nDokázal jsi tím, že jsi moudrý a odvážný, ale především že dokážeš uchopit tajemství, které ti hodlám předat.\nV království tohoto webu nevládne pouze Google, ale i jeho další bratři jako Adobe, Matomo a Snowplow. A každý z nich ale požaduje vybírat od svých poddaných data jiným způsobem. A co pak má dělat chudák bežná funkce, když musí odvést svůj datový desátek všem těmto mocnostem?\nVelký čaroděj pomocí svých mocných kouzel tedy přivedl k existenci funkci measure. Dobrotivou a milosrdnou funkci, která vybere data a přerozdělí je jednotlivým vládcům v podobách, jaké požadují. Zavolej funkci measure.notify s parametrem true a uvidíš, jaká data measure dostává.\nNyní vyhledej samotného, čaroděje dechberoucího Lukáše Čecha. Prohlédni si jeho portrét a sleduj, co on předá spravedlivé funkci measure.",
+	"Kdo jsi a proč mě rušíš z mých meditací?\nPoklad? Ty si jdeš pro poklad? No to je velmi troufalé!\nNeřeknu ti, kde se poklad nachází, neb sám to nevím. Byl ukryt před dávnými časy, generace ho již nikdo nespatřil a mnozí již pochybují o jeho samotné existenci.\nVím ale, kde můžeš najít mapu k pokladu. Je skryta v pradávné jeskyni. Vchod do této jeskyně je schovaný pod hitem směřujícím do Matoma a otevřela se před okamžikem, když jsi kliknul na můj obraz.\nUtíkej, není čas ztrácet čas!",
 	"Poklad získá ten, kdo hrdě a beze strachu nahlas pronese pradávná slova moci 'consoleQuest.treasure()'",
 	"Dokázal jsi to!\nPřekonal jsi všechna protiventví osudu, vyhledal jsi mocného čaroděje a nalezl mapu dávno ztraceného pokladu.\nPokud by ses v budoucnu chtěl zúčastnit nějaké výpravy s námi, pošli holuba do našeho hradu 'my@activate.cz' a třeba se společně vypravíme k pohádkovému bohatství i nehynoucí slávě.\nNyní již ber svou zaslouženou odměnu hrdino. Ber dokud pokladnice nebude prázdná.",
 	"Pokladnice už je bohužel prázdná. U nás ve firemním Slacku ale zaručen dobrý vtip každy den."
