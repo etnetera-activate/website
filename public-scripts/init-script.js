@@ -194,7 +194,7 @@ var consoleQuestTexts = [
 
 // CSS Styles for notification to console
 var consoleQuestNotifyStyles = [
-	"color: #01abdf; font-size: 130%; font-weight: 600; background-color: #000000;padding: 10px;"
+	"color: #01abdf; font-size: 130%; font-weight: 600; background-color: #000000;padding: 10px 10px 10px 15px;border-left: 2px solid #01abdf"
 ];
 
 // Jokes for treasure
