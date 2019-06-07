@@ -16,11 +16,10 @@
     <div class="col-lg order-last col-md-12">
         <span class="comment">[ Tady nás najdeš úplně nejvíc! ]</span>
         <div class="row">
-            <a href="https://twitter.com/etneteractivate" class="col-lg-4 col-md-2 col-6 social-icon" data-walocation="footerClick" data-walinkname="Twitter"><img src="<%= site.basePath %>/assets/imgs/social/map.png" /><span>Mapa k nám</span></a>
+            <a onclick="measure({action:'footerClick',footerElementName:'Mapa'}); return false;" href="#" class="col-lg-4 col-md-2 col-6 social-icon" data-toggle="modal" data-target="#map"><img src="<%= site.basePath %>/assets/imgs/social/map.png" /><span>Mapa k nám</span></a>
             <a href="https://twitter.com/etneteractivate" class="col-lg-4 col-md-2 col-6 social-icon" data-walocation="footerClick" data-walinkname="Twitter"><img src="<%= site.basePath %>/assets/imgs/social/twitter.png" /><span>Twitter</span></a>
             <a href="https://medium.com/etnetera-activate" class="col-lg-4 col-md-2 col-6 social-icon" data-walocation="footerClick" data-walinkname="Medium"><img src="<%= site.basePath %>/assets/imgs/social/medium.png" /><span>Blog</span></a>
             <a href="https://www.linkedin.com/company/etnetera-activate" class="col-lg-4 col-md-2 col-6 social-icon" data-walocation="footerClick" data-walinkname="Linkedin"><img src="<%= site.basePath %>/assets/imgs/social/linkedin.png" /><span>Linkedin</span></a>
-            <a onclick="measure({action:'footerClick',footerElementName:'Kalendář'}); return false;" href="#" class="col-lg-4 col-md-2 col-6 social-icon" data-toggle="modal" data-target="#eventsCalendar"><img src="<%= site.basePath %>/assets/imgs/social/calendar.png" /><span>Kalendář</span></a>
             <a href="https://zivotsactivate.tumblr.com/" class="col-lg-4 col-md-2 col-6 social-icon" data-walocation="footerClick" data-walinkname="Tumblr"><img src="<%= site.basePath %>/assets/imgs/social/tumblr.png" /><span>Tumblr</span></a>
         </div>
     </div>
@@ -78,17 +77,17 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="eventsCalendar" tabindex="-1" role="dialog" aria-labelledby="eventsCalendarLabel" aria-hidden="true">
+<div class="modal fade" id="map" tabindex="-1" role="dialog" aria-labelledby="mapLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="eventsCalendarLabel">Kalendář akcí</h5>
+                <h5 class="modal-title" id="mapLabel">Tady se nacházíme:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <iframe src="https://calendar.google.com/calendar/b/1/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=etnetera.cz_vhle6ln0rnkb06kvo53icnfhm0%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FPrague" style="border-width:0" width="766" height="600" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.871625693074!2d14.451913816060918!3d50.1074097794294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94b2bbd59eed%3A0x4186376dbe492f6a!2sEtnetera+Activate+a.s.!5e0!3m2!1scs!2scz!4v1558686906677!5m2!1scs!2scz" width="766" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

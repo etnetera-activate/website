@@ -142,12 +142,12 @@ h3 {
 
 a {
     color: #009ee6;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
     color: #009ee6;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .navbar a:link, .navbar a:visited {
     text-decoration: none;
@@ -614,6 +614,9 @@ address {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.media:hover {
+    text-decoration: none;
+}
 
 .media .image {
     height: 284px;
@@ -912,7 +915,7 @@ address {
         margin-top: 0;
     }
     .letter .left-col {
-        padding-top: 40px;
+        padding-top: 50px;
     }
 }
 

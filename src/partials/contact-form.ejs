@@ -1,13 +1,13 @@
 <section class="row" id="kontakt">
 
     <div class="col">
-        <h1 class="ml-sm-5">Napište nám. Žádný dotaz není blbý!</h1>
+        <h1 class="ml-sm-5">Napište nám. <!-- Žádný dotaz není blbý! --></h1>
         <p class="ml-sm-5">Máme rádi dotazy, protože to znamená, že vás téma zaujalo a chcete se dozvědět víc. <strong>Takže neváhejte a zeptejte se na cokoliv chcete.</strong></p>
         <p class="ml-sm-5">Nemáme žádné automatické odpovídací systémy, takže se to dostane ke skutečným lidem. :-)</p>
         <div class="letter-wrapper">
             <div class="letter">
                 <div class="alert alert-success" role="alert" v-if="sent">
-                    Váš požadavek na zničení světa byl zaznamenán. O jeho stavu Vás budeme informovat. Děkujeme.
+                    {{confirm}}
                 </div>
                 <form class="row text-left" novalidate="true" @submit.prevent="checkForm">
                     <div class="col-lg-5 offset-lg-1 col-md-6 d-none d-sm-block">

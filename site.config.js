@@ -5,6 +5,6 @@ module.exports = {
 		basePath: process.env.NODE_ENV === 'production' ? '/test' : ''
 	},
 	build: {
-		outputPath: process.env.NODE_ENV === 'production' ? './docs' : './public'
+		outputPath: process.env.NODE_ENV === 'production' ? './public' : './public'
 	}
 };
