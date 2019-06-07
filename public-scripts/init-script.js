@@ -187,8 +187,8 @@ var consoleQuestTexts = [
 
 // CSS Styles for notification to console
 var consoleQuestNotifyStyles = [
-	"color: #01abdf; font-size: 16px; font-weight: 600; background-color: #000000;padding: 5px 5px 5px 15px;border-left: 2px solid #01abdf;line-height: 24px;display: block; width: 400px;",
-	"color: #FFDF00; font-size: 16px; font-weight: 600; background-color: #000000;padding: 5px 5px 5px 15px;border-left: 2px solid #FFDF00;line-height: 24px;display: block; width: 400px;"
+	"color: #01abdf; font-size: 14px; font-weight: 500; background-color: #ffffff;padding: 5px 5px 5px 10px;border-left: 5px solid #01abdf;line-height: 22px;display: block; width: 90%;",
+	"color: #FFDF00; font-size: 14px; font-weight: 500; background-color: #ffffff;padding: 5px 5px 5px 10px;border-left: 5px solid #FFDF00;line-height: 22px;display: block; width: 90%;"
 ];
 
 // Jokes for treasure
