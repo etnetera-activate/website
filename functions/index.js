@@ -28,7 +28,7 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 		let slackMessage = "";
 		let sendMail = true;
 
-		if ( name === "" || email === "") {
+		if (name === "" || email === "") {
 			slackMessage = {
 				"text": "Problém u webového formuláře, jméno nebo e-mail jsou prázdné.  \n*Jméno:* " + name + "\n *e-mail:* " + email + "\n *datum:* " + date + "\n *text:* " + message,
 				"mrkdwn": true
@@ -85,12 +85,27 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 						}, {
 							value: {
 								struct: {
-									member: {
-										name: 'send_to',
-										value: {
-											string: 'info@activate.cz'
+									member: [
+										{
+											name: 'send_to',
+											value: {
+												string: 'info@activate.cz'
+											}
+										},
+										{
+											name: 'content',
+											value: {
+												struct: {
+													member: {
+														name: 'telo',
+														value: {
+															string: Base64.encode(message)
+														}
+													}
+												}
+											}
 										}
-									}
+									]
 								}
 							}
 						}, {
