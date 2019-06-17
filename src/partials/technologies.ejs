@@ -1,5 +1,5 @@
 <span class="comment red-arrow-down mt-5">[ Technologie, které používáme ]</span>
-<section class="technologies">
+<section class="technologies" id="technologies">
     <div class="row">
         <div v-for="technology in filteredTechnologies" class="col-4 col-sm-4 col-md-2 align-self-center technology" @click="setActiveTechnology(technology)"
              :onclick="'measure({action:\'usedTechnologyClick\',technology:\'' + technology.name +'\'})'">
@@ -10,7 +10,7 @@
             <span>Naše znalosti</span>
         </div>
     </div>
-    <div class="row justify-content-md-center" v-if="activeTechnologyDescription">
+    <div id="activeTechnology" class="row justify-content-md-center" v-if="activeTechnologyDescription">
         <div class="col-md-9 align-self-center technology-description">
             <div class="row">
                 <div class="col-md-4 align-self-center"><img :src="'<%= site.basePath %>/assets/imgs/technologies/' + activeTechnology.image + '.png'"  :alt="activeTechnology.alt"/></div>

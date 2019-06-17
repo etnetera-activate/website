@@ -28,8 +28,6 @@
 
 	});
 
-
-
 	// Initialize Firebase
 	var config = {
 		apiKey: "AIzaSyDBi1nrdZDnKdQZVG-et2IdKHtUlhOU-FU",
@@ -66,6 +64,23 @@
             confirm: "Váš požadavek na zničení světa byl zaznamenán. O jeho stavu Vás budeme informovat. Děkujeme.",
 		},
 		methods: {
+			setActiveTechnologyByName(technologyName){
+				let techKeys=Object.keys(this.technologies)
+				console.log("Searching for technology: "+technologyName)
+				for(let i=0;i<techKeys.length;i++){
+					let tech = this.technologies[techKeys[i]]
+					tech.helpName = tech.name + "em"; //HACK
+					if(technologyName.toLowerCase() === tech.name.toLowerCase()){
+						console.log("Technology found. Set to: "+ JSON.stringify(tech))
+						this.setActiveTechnology(tech)
+						document.location.href="#"
+						document.location.href="#technologies"
+
+						document.getElementById("interested").innerText="[ Potřebujete pomoci s "+ tech.helpName  +" ? ]"
+						
+					}
+				}
+			},
             setActiveTechnology: function(technology){
             	this.activeTechnology = technology;
             	this.activeTechnologyDescription = true;
@@ -141,6 +156,8 @@
             }
         },
 		mounted: function () {
+			
+
 			if (localStorage.getItem('medium')) {
 				this.mediumArticles = JSON.parse(localStorage.getItem('medium'));
             }
@@ -159,9 +176,7 @@
 			if (localStorage.getItem('timestamp')) {
 				this.timestamp = localStorage.getItem('timestamp');
 			}
-
 			if (this.now - this.timestamp > 86400000) {
-
 					fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fetnetera-activate&api_key=vxx13alxnggbzfqugtped2fmbwko53ry1c8lafmz")
 						.then(r => r.json())
 						.then(json => {
@@ -182,8 +197,16 @@
 							localStorage.setItem('technologies', JSON.stringify(data.technologies));
 							localStorage.setItem('timestamp', Date.now().toString());
 						});
-
             }
+
+			// anchors
+			if(document.location.search){
+				var urlParams = new URLSearchParams(window.location.search);
+				if (urlParams.has('technology')){
+					this.setActiveTechnologyByName(urlParams.get("technology"));
+				}
+			}
+
 			this.$nextTick(function () {
 				//image preloading
 				if(window.location.pathname === '/') {
