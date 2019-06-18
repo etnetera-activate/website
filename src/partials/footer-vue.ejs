@@ -66,25 +66,22 @@
 		methods: {
 			setActiveTechnologyByName(technologyName){
 				let techKeys=Object.keys(this.technologies)
-				console.log("Searching for technology: "+technologyName)
+				// console.log("Searching for technology: "+technologyName)
 				for(let i=0;i<techKeys.length;i++){
 					let tech = this.technologies[techKeys[i]]
-					
 					if(technologyName.toLowerCase() === tech.name.toLowerCase()){
-						console.log("Technology found. Set to: "+ JSON.stringify(tech))
+						// console.log("Technology found. Set to: "+ JSON.stringify(tech))
 						this.setActiveTechnology(tech)
+						
 						document.location.href="#"
 						document.location.href="#technologies"
-
-
-						
 					}
 				}
 			},
             setActiveTechnology: function(technology){
             	this.activeTechnology = technology;
             	this.activeTechnologyDescription = true;
-				if (technology.helpName.trim()==="") technology.helpName = technology.name; //HACK
+				if (technology.helpName.trim()==="") technology.helpName = technology.name;
 				document.getElementById("interested").innerText="[ Potřebujete pomoci s "+ technology.helpName +" ? ]"
             },
 			checkForm: function (e) {
@@ -177,7 +174,7 @@
         computed: {
 	        filteredTechnologies: function() {
 	        	return _.pickBy(this.technologies, function(tech) {
-	        		return tech.show.toLowerCase()==="true"
+	        		return tech.show
                 })
             }
         },
