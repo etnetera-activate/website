@@ -9,6 +9,13 @@
 <style></style>
 <script src="<%= site.basePath %>/assets/js/cookieconsent.js"></script>
 <script>
+
+
+	// window.piwikHeatmapSessionRecordingAsyncInit = function () {
+	// 	console.log("piwikHeatmapSessionRecordingAsyncInit")
+	// 	Piwik.HeatmapSessionRecording.disable();
+	// };
+
 	$(document).on("scroll", function() {
 
 		if(document.body.offsetWidth > 991) {
@@ -64,6 +71,14 @@
             confirm: "Váš požadavek na zničení světa byl zaznamenán. O jeho stavu Vás budeme informovat. Děkujeme.",
 		},
 		methods: {
+			startTrackingVirtualPageviewToPiwik(pageName, pageUrl){		
+				_paq.push(['setCustomUrl', pageUrl]);
+        		_paq.push(['setDocumentTitle', pageName]);
+        		_paq.push(['trackPageView']);
+				document.location.href="#"+pageUrl
+				Piwik.HeatmapSessionRecording.enable()
+				Piwik.HeatmapSessionRecording.setNewPageView(true)
+			},
 			setActiveTechnologyByName(technologyName){
 				let techKeys=Object.keys(this.technologies)
 				// console.log("Searching for technology: "+technologyName)
@@ -83,6 +98,7 @@
             	this.activeTechnologyDescription = true;
 				if (technology.helpName.trim()==="") technology.helpName = technology.name;
 				document.getElementById("interested").innerText="[ Potřebujete pomoci s "+ technology.helpName +" ? ]"
+				this.startTrackingVirtualPageviewToPiwik(document.title+" : TECHNOLOGY :" + technology.name , "/virtualPages/technology/"+technology.name )
             },
 			checkForm: function (e) {
 				this.errorName = "";
@@ -163,6 +179,8 @@
 							this.peoples = data.peoples;
 							this.technologies = data.technologies;
 
+							//order people
+
 							localStorage.setItem('references', JSON.stringify(data.projects));
 							localStorage.setItem('peoples', JSON.stringify(data.peoples));
 							localStorage.setItem('technologies', JSON.stringify(data.technologies));
@@ -179,7 +197,7 @@
             }
         },
 		mounted: function () {
-			
+			//Piwik.HeatmapSessionRecording.disable();
 
 			if (localStorage.getItem('medium')) {
 				this.mediumArticles = JSON.parse(localStorage.getItem('medium'));
