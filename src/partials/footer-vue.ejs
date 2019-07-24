@@ -9,6 +9,13 @@
 <style></style>
 <script src="<%= site.basePath %>/assets/js/cookieconsent.js"></script>
 <script>
+
+
+	// window.piwikHeatmapSessionRecordingAsyncInit = function () {
+	// 	console.log("piwikHeatmapSessionRecordingAsyncInit")
+	// 	Piwik.HeatmapSessionRecording.disable();
+	// };
+
 	$(document).on("scroll", function() {
 
 		if(document.body.offsetWidth > 991) {
@@ -27,8 +34,6 @@
 
 
 	});
-
-
 
 	// Initialize Firebase
 	var config = {
@@ -66,9 +71,34 @@
             confirm: "Váš požadavek na zničení světa byl zaznamenán. O jeho stavu Vás budeme informovat. Děkujeme.",
 		},
 		methods: {
+			startTrackingVirtualPageviewToPiwik(pageName, pageUrl){		
+				_paq.push(['setCustomUrl', pageUrl]);
+        		_paq.push(['setDocumentTitle', pageName]);
+        		_paq.push(['trackPageView']);
+				document.location.href="#"+pageUrl
+				Piwik.HeatmapSessionRecording.enable()
+				Piwik.HeatmapSessionRecording.setNewPageView(true)
+			},
+			setActiveTechnologyByName(technologyName){
+				let techKeys=Object.keys(this.technologies)
+				// console.log("Searching for technology: "+technologyName)
+				for(let i=0;i<techKeys.length;i++){
+					let tech = this.technologies[techKeys[i]]
+					if(technologyName.toLowerCase() === tech.name.toLowerCase()){
+						// console.log("Technology found. Set to: "+ JSON.stringify(tech))
+						this.setActiveTechnology(tech)
+						
+						document.location.href="#"
+						document.location.href="#technologies"
+					}
+				}
+			},
             setActiveTechnology: function(technology){
             	this.activeTechnology = technology;
             	this.activeTechnologyDescription = true;
+				if (technology.helpName.trim()==="") technology.helpName = technology.name;
+				document.getElementById("interested").innerText="[ Potřebujete pomoci s "+ technology.helpName +" ? ]"
+				this.startTrackingVirtualPageviewToPiwik(document.title+" : TECHNOLOGY :" + technology.name , "/virtualPages/technology/"+technology.name )
             },
 			checkForm: function (e) {
 				this.errorName = "";
@@ -131,7 +161,33 @@
             photoLeave: function(people, index){
             	clearTimeout(this.timer[index]);
             	people.actualPhoto = people.short.toLowerCase() + '1';
-            }
+            },
+			updateLocalStorage: function(){
+				console.log("Updating local storage")
+				fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fetnetera-activate&api_key=vxx13alxnggbzfqugtped2fmbwko53ry1c8lafmz")
+						.then(r => r.json())
+						.then(json => {
+							this.mediumArticles=json.items;
+							localStorage.setItem('medium', JSON.stringify(json.items));
+							localStorage.setItem('timestamp', Date.now().toString());
+						});
+
+					firebase.database().ref('/content').once('value').then(
+						snapshot => {
+							data = snapshot.exportVal();
+							this.references = data.projects;
+							this.peoples = data.peoples;
+							this.technologies = data.technologies;
+
+							//order people
+
+							localStorage.setItem('references', JSON.stringify(data.projects));
+							localStorage.setItem('peoples', JSON.stringify(data.peoples));
+							localStorage.setItem('technologies', JSON.stringify(data.technologies));
+							localStorage.setItem('timestamp', Date.now().toString());
+						});
+			}
+
 		},
         computed: {
 	        filteredTechnologies: function() {
@@ -141,6 +197,8 @@
             }
         },
 		mounted: function () {
+			//Piwik.HeatmapSessionRecording.disable();
+
 			if (localStorage.getItem('medium')) {
 				this.mediumArticles = JSON.parse(localStorage.getItem('medium'));
             }
@@ -159,31 +217,21 @@
 			if (localStorage.getItem('timestamp')) {
 				this.timestamp = localStorage.getItem('timestamp');
 			}
-
 			if (this.now - this.timestamp > 86400000) {
-
-					fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fetnetera-activate&api_key=vxx13alxnggbzfqugtped2fmbwko53ry1c8lafmz")
-						.then(r => r.json())
-						.then(json => {
-							this.mediumArticles=json.items;
-							localStorage.setItem('medium', JSON.stringify(json.items));
-							localStorage.setItem('timestamp', Date.now().toString());
-						});
-
-					firebase.database().ref('/content').once('value').then(
-						snapshot => {
-							data = snapshot.exportVal();
-							this.references = data.projects;
-							this.peoples = data.peoples;
-							this.technologies = data.technologies;
-
-							localStorage.setItem('references', JSON.stringify(data.projects));
-							localStorage.setItem('peoples', JSON.stringify(data.peoples));
-							localStorage.setItem('technologies', JSON.stringify(data.technologies));
-							localStorage.setItem('timestamp', Date.now().toString());
-						});
-
+				this.updateLocalStorage()
             }
+
+			// anchors a dalsi rizeni
+			if(document.location.search){
+				var urlParams = new URLSearchParams(window.location.search);
+				if (urlParams.has('technology')){
+					this.setActiveTechnologyByName(urlParams.get("technology"));
+				}
+				if (urlParams.has("reload")){
+					this.updateLocalStorage();
+				}
+			}
+
 			this.$nextTick(function () {
 				//image preloading
 				if(window.location.pathname === '/') {

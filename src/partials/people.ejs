@@ -6,7 +6,7 @@
            :class="'col-6 col-sm-6 col-md-3 col-lg-2 media name-'+ index"
            href="#"
            data-toggle="modal"
-           :data-target="'#peopleModal-'+ index"
+           :data-target="'#people-'+ member.short.toLowerCase()"
            :style="'background-image: url(/assets/imgs/peoples/mini/'+ member.actualPhoto +'-min.jpg)'"
            :onclick="'measure({action:\'portraitClick\',portraitPerson:\'' + member.name +' '+ member.lastname +'\'})'"
            >
@@ -26,10 +26,8 @@
 </section>
 
 
-
-
 <!-- Modal -->
-<div v-for="(member, index) in peoples" class="modal fade" :id="'peopleModal-'+ index" tabindex="-1" role="dialog" :aria-labelledby="'modal'+ index" aria-hidden="true">
+<div v-for="(member, index) in peoples" class="modal fade" :id="'people-'+ member.short.toLowerCase()" tabindex="-1" role="dialog" :aria-labelledby="'modal'+ index" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -45,7 +43,7 @@
                     </div>
                     <div class="col-md aboutMember">
                         <div><strong>Hodnost: </strong><span>{{member.position}}</span></div>
-                        <div><strong>Přjmení: </strong><span>{{member.lastname}}</span></div>
+                        <div><strong>Přijmení: </strong><span>{{member.lastname}}</span></div>
                         <div><strong>Křestní jméno: </strong><span>{{member.name}}</span></div>
                         <div><strong>E-mail: </strong><a :href="'mailto:'+ member.mail">{{member.mail}}</a></div>
                         <div><a v-if="member.linkedin" :href="member.linkedin">LinkedIn</a> <a v-if="member.twitter" :href="member.twitter">Twitter</a></div>
