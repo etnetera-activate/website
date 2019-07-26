@@ -72,9 +72,10 @@
 		},
 		methods: {
 			startTrackingVirtualPageviewToPiwik(pageName, pageUrl){		
-				_paq.push(['setCustomUrl', pageUrl]);
-        		_paq.push(['setDocumentTitle', pageName]);
-        		_paq.push(['trackPageView']);
+				// _paq.push(['setCustomUrl', pageUrl]);
+        		// _paq.push(['setDocumentTitle', pageName]);
+        		// _paq.push(['trackPageView']);
+				
 				document.location.href="#"+pageUrl
 				Piwik.HeatmapSessionRecording.enable()
 				Piwik.HeatmapSessionRecording.setNewPageView(true)
@@ -98,6 +99,7 @@
             	this.activeTechnologyDescription = true;
 				if (technology.helpName.trim()==="") technology.helpName = technology.name;
 				document.getElementById("interested").innerText="[ Potřebujete pomoci s "+ technology.helpName +" ? ]"
+
 				this.startTrackingVirtualPageviewToPiwik(document.title+" : TECHNOLOGY :" + technology.name , "/virtualPages/technology/"+technology.name )
             },
 			checkForm: function (e) {
