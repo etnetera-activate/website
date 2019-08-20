@@ -7,10 +7,11 @@
            href="#"
            data-toggle="modal"
            :data-target="'#people-'+ member.short.toLowerCase()"
+
            :style="'background-image: url(/assets/imgs/peoples/mini/'+ member.actualPhoto +'-min.jpg)'"
            :onclick="'measure({action:\'portraitClick\',portraitPerson:\'' + member.name +' '+ member.lastname +'\'})'"
            >
-            <div class="image"
+            <div v-if="member.photos" class="image"
                  v-on:mouseenter="photoEnter(member, index)"
                  v-on:mouseleave="photoLeave(member, index)"
                  :style="'background-image: url(/assets/imgs/peoples/mini/' + member.short.toLowerCase() + '1-min.jpg)'"
@@ -28,8 +29,8 @@
 
 <!-- Modal -->
 <div v-for="(member, index) in peoples" class="modal fade" :id="'people-'+ member.short.toLowerCase()" tabindex="-1" role="dialog" :aria-labelledby="'modal'+ index" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg" role="document" v-if="member.photos">
+        <div class="modal-content"> 
             <div class="modal-header">
                 <h5 class="modal-title" :id="'modal'+ index">Složka zaměstnance #{{index}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -48,7 +49,7 @@
                         <div><strong>E-mail: </strong><a :href="'mailto:'+ member.mail">{{member.mail}}</a></div>
                         <div><a v-if="member.linkedin" :href="member.linkedin">LinkedIn</a> <a v-if="member.twitter" :href="member.twitter">Twitter</a></div>
 
-                        <p class="mt-2">{{member.about_cs}}</p>
+                        <p class="mt-2" v-html="member.about_cs"></p>
                     </div>
                 </div>
             </div>

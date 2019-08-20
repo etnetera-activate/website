@@ -52,7 +52,8 @@
 			loaded: false,
 			references: undefined,
             technologies: undefined,
-            peoples: undefined,
+			peoples: undefined,
+			activePeople: undefined,
 			mediumArticles: undefined,
             calendar: null,
             showReferences: false,
@@ -101,7 +102,17 @@
 				document.getElementById("interested").innerText="[ Potřebujete pomoci s "+ technology.helpName +" ? ]"
 
 				this.startTrackingVirtualPageviewToPiwik(document.title+" : TECHNOLOGY :" + technology.name , "/virtualPages/technology/"+technology.name )
-            },
+			},
+			setActivePeople: function(code){
+				var modalId="#people-"+code.toLowerCase();
+				this.activePeople=modalId;
+				setTimeout(function(){ 
+					console.log("Activating modal:"+modalId)
+					$(modalId).modal("show")
+				}, 500);
+				
+			},
+
 			checkForm: function (e) {
 				this.errorName = "";
 				this.errorEmail = "";
@@ -125,7 +136,7 @@
 				const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				return re.test(email);
 			},
-			storeMessage: function () {
+			storeMessagte: function () {
 				const url = "https://us-central1-activate-website-2.cloudfunctions.net/saveMessage?message=" + encodeURIComponent(this.message) +  "&email=" + encodeURIComponent(this.email) + "&name=" + encodeURIComponent(this.name);
                 console.log("Storing message " + this.message + " for " + this.email + " name: " + this.name);
                 //console.log(url)
@@ -187,6 +198,9 @@
 							localStorage.setItem('peoples', JSON.stringify(data.peoples));
 							localStorage.setItem('technologies', JSON.stringify(data.technologies));
 							localStorage.setItem('timestamp', Date.now().toString());
+
+							
+			
 						});
 			}
 
@@ -229,6 +243,10 @@
 				if (urlParams.has('technology')){
 					this.setActiveTechnologyByName(urlParams.get("technology"));
 				}
+				else if (urlParams.has('people')){
+					this.setActivePeople(urlParams.get("people"));
+				}
+
 				if (urlParams.has("reload")){
 					this.updateLocalStorage();
 				}
