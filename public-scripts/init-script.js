@@ -9,9 +9,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W6M9MSR')
 
 // Adobe measurement snippet
+/*
 !function(){var e = document.createElement("script");var m = document.getElementsByTagName("script")[0];e.async = 1;
 e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js";m.parentNode.insertBefore(e, m)
 }();
+*/
 
 // Matomo measurement snippet
 var _paq = window._paq || [];
