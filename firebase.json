@@ -767,6 +767,9 @@
         "destination": "https://medium.com/etnetera-activate",
         "type": 301
       }
-    ]
+    ],
+    "rewrites": [{
+      "source": "/saveMessage**", "function": "saveMessage"
+    }]
   }
 }

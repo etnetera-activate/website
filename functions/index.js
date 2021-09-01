@@ -6,8 +6,13 @@ const builder = require('xmlbuilder');
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 const admin = require('firebase-admin');
+const serviceAccount = require('./activate-website-2-firebase-adminsdk-eznhq-536c58c8c7.json');
 
-admin.initializeApp(functions.config().firebase);
+//admin.initializeApp(functions.config().firebase);
+admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount),
+	databaseURL: "https://activate-website-2.firebaseio.com"
+});
 
 // SLACK api webhook url
 const slackUrl = "https://hooks.slack.com/services/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";
@@ -28,6 +33,7 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 		let slackMessage = "";
 		let sendMail = true;
 
+		// SLACK hook
 		if (name === "" || email === "") {
 			slackMessage = {
 				"text": "Problém u webového formuláře, jméno nebo e-mail jsou prázdné.  \n*Jméno:* " + name + "\n *e-mail:* " + email + "\n *datum:* " + date + "\n *text:* " + message,
@@ -41,9 +47,6 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 				"mrkdwn": true
 			};
 		}
-		// SLACK hook
-
-
 		httpRequest.post({
 			url: slackUrl,
 			json: true,
@@ -55,7 +58,6 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 				console.log('Done.');
 			}
 		});
-
 
 		// MAILKIT API
 		const mailkitUrl = "https://api.mailkit.eu/rpc.fcgi";
@@ -239,9 +241,9 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 				body: xml
 			}, function (error, response, body) {
 				if (error) {
-					console.log('mailkit Error: ' + error);
+					console.log('mailkit Error: ' + JSON.stringify(error));
 				} else {
-					console.log('mailkit Done: ' + response);
+					console.log('mailkit Done: ' + JSON.stringify(response));
 				}
 			});
 

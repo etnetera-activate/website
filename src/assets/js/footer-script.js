@@ -124,7 +124,7 @@
 				return re.test(email);
 			},
 			storeMessage: function () {
-				const url = "https://us-central1-activate-website-2.cloudfunctions.net/saveMessage?message=" + encodeURIComponent(this.message) +  "&email=" + encodeURIComponent(this.email) + "&name=" + encodeURIComponent(this.name);
+				const url = "https://activate.cz/saveMessage?message=" + encodeURIComponent(this.message) +  "&email=" + encodeURIComponent(this.email) + "&name=" + encodeURIComponent(this.name);
                 console.log("Storing message " + this.message + " for " + this.email + " name: " + this.name);
                 //console.log(url)
 				measure ({
