@@ -5,3 +5,4 @@
 public/
 node_modules/
 /functions/activate-website-2-firebase-adminsdk-eznhq-536c58c8c7.json
+/.firebase/*.cache
