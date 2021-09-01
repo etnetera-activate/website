@@ -1,23 +1,21 @@
 const functions = require('firebase-functions');
 const Base64 = require('js-base64').Base64;
-const httpRequest = require('request');
+const axios = require('axios');
 const builder = require('xmlbuilder');
 
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 const admin = require('firebase-admin');
-const serviceAccount = require('./activate-website-2-firebase-adminsdk-eznhq-536c58c8c7.json');
+const keys = require('./keys.json');
 
 //admin.initializeApp(functions.config().firebase);
 admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
+	credential: admin.credential.cert(keys),
 	databaseURL: "https://activate-website-2.firebaseio.com"
 });
 
 // SLACK api webhook url
-const slackUrl = "https://hooks.slack.com/services/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";
-// test slack url
-//const slackUrl = "https://hooks.slack.com/services/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";
+const slackUrl = keys.slack_webhook_url;
 
 // deal with CORS problem/security
 const cors = require('cors')({
@@ -25,6 +23,8 @@ const cors = require('cors')({
 });
 
 exports.saveMessage = functions.https.onRequest((request, response) => {
+	//console.log(process.env);
+
 	cors(request, response, () => {
 		const message = request.query.message;
 		const email = request.query.email;
@@ -40,215 +40,65 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 				"mrkdwn": true
 			};
 			sendMail = false;
-
 		} else {
 			slackMessage = {
 				"text": "*Nová zpráva z webového formuláře*\n*Jméno:* " + name + "\n *e-mail:* " + email + "\n *datum:* " + date + "\n *text:* " + message,
 				"mrkdwn": true
 			};
 		}
-		httpRequest.post({
-			url: slackUrl,
-			json: true,
-			body: slackMessage
-		}, function (error, response, body) {
-			if (error) {
-				console.log('Error: ' + error);
-			} else {
-				console.log('Done.');
-			}
+		axios.post(slackUrl, slackMessage)
+		.then(function (response) {
+			console.log('Done: ', response);
+		})
+		.catch(function (error) {
+			console.log('Error: ', error);
 		});
 
 		// MAILKIT API
-		const mailkitUrl = "https://api.mailkit.eu/rpc.fcgi";
+		const mailkitUrl = "https://api.mailkit.eu/json.fcgi";
 
-		// tvorba xml requestu na mailkit
-		let xml = builder.create({
-			methodCall: {
-				methodName: 'mailkit.sendmail',
-				params: {
-					param: [
-						{
-							value: {
-								int: 118608497
-							}
-						}, {
-							value: {
-								string: 'da3bee408877b702fd62610de8d1c0a0'
-							}
-						}, {
-							value: {
-								int: 80296
-							}
-						}, {
-							value: {
-								int: 84069
-							}
-						}, {
-							value: {
-								struct: {
-									member: [
-										{
-											name: 'send_to',
-											value: {
-												string: 'info@activate.cz'
-											}
-										},
-										{
-											name: 'content',
-											value: {
-												struct: {
-													member: {
-														name: 'telo',
-														value: {
-															string: Base64.encode(message)
-														}
-													}
-												}
-											}
-										}
-									]
-								}
-							}
-						}, {
-							value: {
-								struct: ''
-							}
-						}, {
-							value: {
-								struct: ''
-							}
-						}, {
-							value: {
-								struct: {
-									member: [
-										{
-											name: 'custom1',
-											value: {
-												string: Base64.encode(name)
-											}
-										}, {
-											name: 'custom2',
-											value: {
-												string: Base64.encode(email)
-											}
-										}, {
-											name: 'custom3',
-											value: {
-												string: Base64.encode(message)
-											}
-										}, {
-											name: 'custom4',
-											value: {
-												string: Base64.encode(date)
-											}
-										}
-									]
-								}
-							}
-						}
-					]
+		// tvorba json requestu na mailkit
+		let mailkitApiCallJson = {
+			"function": "mailkit.sendmail",
+			"id": "118608497",
+			"md5": "da3bee408877b702fd62610de8d1c0a0",
+			"parameters": {
+				"mailinglist_id": "80296",
+				"campaign_id": "84069",
+				"main": {
+					"send_to": "info@activate.cz",
+					//"send_to": "lukas.cech@activate.cz",
+					"content": {
+						"telo": Base64.encode(message)
+					}
+				},
+				"custom": {
+					"custom1": Base64.encode(name),
+					"custom2": Base64.encode(email),
+					"custom4": Base64.encode(date)
 				}
 			}
-		}).end({
-			allowEmpty: true
-		});
-
+		}
+		
+		// Hiring kampaň z konzole webu (pošli potvrzení zájemci)
 		if (message === "DYCKYMAIL") {
-			xml = builder.create({
-				methodCall: {
-					methodName: 'mailkit.sendmail',
-					params: {
-						param: [
-							{
-								value: {
-									int: 118608497
-								}
-							}, {
-								value: {
-									string: 'da3bee408877b702fd62610de8d1c0a0'
-								}
-							}, {
-								value: {
-									int: 81773
-								}
-							}, {
-								value: {
-									int: 89333
-								}
-							}, {
-								value: {
-									struct: {
-										member: {
-											name: 'send_to',
-											value: {
-												string: email
-											}
-										}
-									}
-								}
-							}, {
-								value: {
-									struct: ''
-								}
-							}, {
-								value: {
-									struct: ''
-								}
-							}, {
-								value: {
-									struct: {
-										member: [
-											{
-												name: 'custom1',
-												value: {
-													string: Base64.encode(name)
-												}
-											}, {
-												name: 'custom2',
-												value: {
-													string: Base64.encode(email)
-												}
-											}, {
-												name: 'custom3',
-												value: {
-													string: Base64.encode(message)
-												}
-											}, {
-												name: 'custom4',
-												value: {
-													string: Base64.encode(date)
-												}
-											}
-										]
-									}
-								}
-							}
-						]
-					}
-				}
-			}).end({
-				allowEmpty: true
-			});
+			mailkitApiCallJson.parameters.mailinglist_id = "81773";
+			mailkitApiCallJson.parameters.campaign_id = "89333";
+			mailkitApiCallJson.parameters.main.send_to = email;
 		}
 
+		console.log(mailkitApiCallJson);
+		// Mailkit - send mail
 		if (sendMail) {
-			httpRequest.post({
-				url: mailkitUrl,
-				headers: {
-					'Content-type': 'text/xml'
-				},
-				body: xml
-			}, function (error, response, body) {
-				if (error) {
-					console.log('mailkit Error: ' + JSON.stringify(error));
-				} else {
-					console.log('mailkit Done: ' + JSON.stringify(response));
-				}
+			axios.post(mailkitUrl, mailkitApiCallJson)
+			.then(function (response) {
+				console.log('MAilkit API status: ', response.data.status);
+			})
+			.catch(function (error) {
+				console.log('Error: ', error);
 			});
 
-
-			// Firebase database
+			// Backup sent e-mail to Firebase database
 			let submitData = {
 				message: message,
 				date: date,
@@ -268,7 +118,5 @@ exports.saveMessage = functions.https.onRequest((request, response) => {
 					console.log('error' + e)
 				});
 		}
-
-
 	});
 });
