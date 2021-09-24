@@ -10,7 +10,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 strong {
-    font-weight: bold;
+    font-weight: 800;
 }
 h1 {
     font-size: 76px;
@@ -32,7 +32,8 @@ h3 {
     color: #282828;
     font-size: 30px;
     margin-bottom: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 .big-letter {
     font-size: 50px;
@@ -67,6 +68,23 @@ h3 {
     height: 3px;
     top: -90px;
 }
+
+.underline {
+    position: relative;
+    margin-bottom: 90px;
+    display: inline-block;
+}
+
+.underline:after {
+    content: "";
+    position: relative;
+    display: block;
+    background: #009ee6;
+    width: 70px;
+    height: 3px;
+    top: 40px;
+}
+
 .ta-blue {
     color: #009ee6;
 }
@@ -544,7 +562,6 @@ address {
     border-top: 1px solid #f5f5f5;
     border-left: 1px solid #f5f5f5;
     margin: 30px 50px;
-    cursor: pointer;
 }
 .crossroads a {
     color: #888888;
@@ -563,15 +580,18 @@ address {
     -moz-transition: .3s all;
     -webkit-transition: .3s all;
     -o-transition: .3s all;
+    cursor: pointer;
 }
-.crossroads h2 {
-    color: #888888;
-    font-weight: 400;
+.crossroads h3 {
+    color: #009ee6;
+    font-weight: 600;
     transition: .3s all;
     -moz-transition: .3s all;
     -webkit-transition: .3s all;
     -o-transition: .3s all;
     min-width: 200px;
+    text-transform: uppercase;
+    font-size: 18px;
 }
 .crossroads ul {
     margin: 0;
@@ -599,11 +619,12 @@ address {
 .crossroads .col:hover {
     background: #2196f3;
     color: #fff;
+    cursor: pointer;
 }
 .crossroads .col:hover span {
     opacity: 1;
 }
-.crossroads .col:hover h2 {
+.crossroads .col:hover h3 {
     color: #fff;
 }
 .crossroads .col:hover li {
