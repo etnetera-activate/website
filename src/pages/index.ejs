@@ -4,12 +4,16 @@ title:
 <section class="row justify-content-between">
     <div class="col-lg-8 col-md-12 align-self-center">
         <h1 class="overline">Hledáme poklady v&nbsp;datech</h1>
-        <p class="comment-straight">Vaše data <span class="ta-black">+</span> naše dovednosti  <span class="ta-black">=</span> lepší business </p>
+        <p class="comment-straight">Vaše data <span class="ta-blue">+</span> naše dovednosti <span
+                class="ta-blue">=</span> lepší business </p>
         <!-- <p>Učíme firmy <strong>rozvíjet se na základě dat</strong>, podle principů digitální maturity. Díky pochopení role <strong>kvalitních dat</strong> a jejich interpretace dokážete rozvíjet business a inovace mnohem <strong>rychleji a kvalitněji</strong>.</p> -->
         <p>
-            Pomáháme využít potenciál skrytý v datech vašich eshopů, portálů, věrnostních programů, emailových databázích a dalších zákoutích online projektů. Postupně vás <strong>provedeme</strong> tím jak data sebrat, konsolidovat a využít k akcím. 
+            Pomáháme využít potenciál skrytý v datech vašich eshopů, portálů, věrnostních programů, emailových
+            databázích a dalších zákoutích online projektů. Postupně vás <strong>provedeme</strong> tím jak data sebrat,
+            konsolidovat a využít k akcím.
         </p>
-        <a class="button button-blue mt-5" href="<%= site.basePath %>/digitalni-maturita" title="Digitální maturita">Co je digitální maturita ››</a>
+        <a class="button button-blue mt-5" href="<%= site.basePath %>/digitalni-maturita" title="Digitální maturita">Co
+            je digitální maturita ››</a>
     </div>
     <div class="col-lg-4 d-md-none d-lg-block">
         <div class="snail-image">
@@ -23,46 +27,45 @@ title:
         </div>
     </div>
 </section>
-<span class="comment mt-5">[ Co společně můžeme ]</span>
+<span class="comment mt-5">[ Co s námi můžete získat ]</span>
 <section class="mb-5 text-center">
     <h2 style="display: none;">Služby</h2>
-    <div class="row proofs">
-        <div class="col">
+    <div class="row proofs mb-5">
+        <a class="col" href="<%= site.basePath %>/klient">
             <img src="<%= site.basePath %>/assets/imgs/molecular.svg">
-            <h3>Přehled</h3>
+            <h3>Přehled o&nbsp;zákaznících</h3>
             Získáte perfektní přehled o <b>pohybu zákazníka</b> v multichannelu
-        </div>
-        <div class="col">
+        </a>
+        <a class="col" href="<%= site.basePath %>/klient">
             <img src="<%= site.basePath %>/assets/imgs/megaphone.svg">
             <h3>Efektivní reklama</h3>
             Zefektivníte investice do reklamy díky <b>data driven atribuci</b>
-        </div>
-        <div class="col">
+        </a>
+        <a class="col" href="<%= site.basePath %>/klient">
             <img src="<%= site.basePath %>/assets/imgs/mailing.svg">
             <h3>Výkonný<br>e-mailing</h3>
             Zlepšíte <b>věrnost zákazníků</b> díky perfektnímu e-mailingu
-        </div>
-        </div>
-        <div class="row proofs">
-            <div class="col">
+        </a>
+        <a class="col" href="<%= site.basePath %>/klient">
             <img src="<%= site.basePath %>/assets/imgs/clicking.svg">
             <h3>Personalizace</h3>
             Využijete data o návštěvnosti pro <b>doporučení dalších nákupů</b>
-        </div>
-        <div class="col">
+        </a>
+        <a class="col" href="<%= site.basePath %>/klient">
             <img src="<%= site.basePath %>/assets/imgs/like.svg">
             <h3>Jistota</h3>
             <b>Ověříte nový nápad za 7 dnů</b> místo za 7 měsíců
-        </div>
-        <div class="col">
+        </a>
+        <a class="col" href="<%= site.basePath %>/klient">
             <img src="<%= site.basePath %>/assets/imgs/ui.svg">
             <h3>Skvělé CX</h3>
             Společně navrhneme dobré<b> UX/UI i celkové CX</b> ověřené daty a testy
-        </div>
+        </a>
     </div>
     <div><a href="<%= site.basePath %>/klient">... a nejen to</a></div>
-    <a class="button button-blue mt-5" href="<%= site.basePath %>/jak-a-kde/#kontakt" title="Kontakt">Chci se naučit pracovat s daty ››</a>
-    
+    <a class="button button-blue mt-5" href="<%= site.basePath %>/jak-a-kde/#kontakt" title="Kontakt">Chci se naučit
+        pracovat s daty ››</a>
+
 </section>
 <span class="comment mt-5">[ Reference ]</span>
 <section class="row">
@@ -73,17 +76,11 @@ title:
 
 </section>
 <%- include('../partials/people') %>
-<%- include('../partials/technologies') %>
-<section class="row justify-content-between text-center pos-relative mt-5">
-    <div class="col text-center">
-        <span class="comment center mt" id="interested">[ Zaujalo vás něco? ]</span>
-        <a class="button button-blue mt-5" href="<%= site.basePath %>/jak-a-kde#kontakt" title="Kontaktujte nás">Napište nám a zeptejte se ››</a>
-    </div>
-</section>
-
-
-
-
-
-
-
+    <%- include('../partials/technologies') %>
+        <section class="row justify-content-between text-center pos-relative mt-5">
+            <div class="col text-center">
+                <span class="comment center mt" id="interested">[ Zaujalo vás něco? ]</span>
+                <a class="button button-blue mt-5" href="<%= site.basePath %>/jak-a-kde#kontakt"
+                    title="Kontaktujte nás">Napište nám a zeptejte se ››</a>
+            </div>
+        </section>
