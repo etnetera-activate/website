@@ -9,3 +9,4 @@ node_modules/
 /functions/keys.json
 /functions/package-lock.json
 /firebase-debug.log
+/package-lock.json
