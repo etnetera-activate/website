@@ -10,3 +10,4 @@ node_modules/
 /functions/package-lock.json
 /firebase-debug.log
 /package-lock.json
+src/partials/old-ga.ejs
