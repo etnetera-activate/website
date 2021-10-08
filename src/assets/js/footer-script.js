@@ -288,5 +288,14 @@ let app = new Vue({
         //console.log(cssText);
       }
     });
+    let wrapper = document.getElementById('CookieDeclarationWrapper');
+    if (wrapper) {
+      let script = document.createElement('script');
+      script.setAttribute('id', 'CookieDeclaration');
+      script.setAttribute('src', 'https://consent.cookiebot.com/5b826701-b028-4e6c-8559-b65d06f30aea/cd.js');
+      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('async', '');
+      wrapper.appendChild(script);
+    }
   },
 });
