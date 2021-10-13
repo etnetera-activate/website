@@ -3,6 +3,15 @@
 // 	Piwik.HeatmapSessionRecording.disable();
 // };
 
+function hideCookieCategory(){
+  var style = document.createElement("style");
+  style.setAttribute("id", "cookiebotCategoryHidingStyle");
+  style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important}";
+  document.head.appendChild(style);
+}
+
+hideCookieCategory();
+
 $(document).on("scroll", function () {
   if (document.body.offsetWidth > 991) {
     if ($(document).scrollTop() > 10) {
