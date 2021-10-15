@@ -5,37 +5,15 @@ digitalData._log = [];
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W6M9MSR');
-
-// Adobe measurement snippet
-/*
-!function(){var e = document.createElement("script");var m = document.getElementsByTagName("script")[0];e.async = 1;
-e.src="https://assets.adobedtm.com/launch-EN369439769fd24f7fbeefe478be365ff9.min.js";m.parentNode.insertBefore(e, m)
-}();
-*/
-
-// Matomo measurement snippet
-var _paq = window._paq || [];
-/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-(function() {
-	var u="//matomo.activate.cz/";
-	_paq.push(['setTrackerUrl', u+'matomo.php']);
-	_paq.push(['setSiteId', '6']);
-	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-})();
-
+'https://validate.activate.cz/container?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','');
 
 // Main measure function
 measure = function (data) {
 	measure.notify (data);
 	measure.add (data);
 	measure.google (data);
-	measure.adobe (data);
-	measure.matomo (data);
+	consoleQuest.matomo (data);
 }
 
 // Notification to console
@@ -97,52 +75,11 @@ measure.deepMerge = function (orgData, newData) {
 };
 
 // Measurement data transfer for Google
-_paq.push(['trackPageView']);
-
 measure.google = function (data){
 	if (data.action != undefined) {
 		data.event = data.action;
 	}
     dataLayer.push (data)
-};
-
-// Measurement data transfer for Adobe
-measure.adobe = function (data){
-	if (data.action != undefined) {
-		//_satellite.track("allDirectCalls", data)
-	}
-};
-
-// Measurement data tranfer for Matomo
-measure.matomo = function (data) {
-	data = data || {};
-
-	switch (data.action) {
-			case 'contactFormSent':
-					_paq.push(['trackEvent', 'Contact Form Sent', undefined, undefined]);
-					break;
-			case 'footerClick':
-					_paq.push(['trackEvent', 'Footer Click', data.footerElementName, undefined]);
-					break;
-			case 'contactsClick':
-					_paq.push(['trackEvent', 'Contacts Click', data.contactsElementName, undefined]);
-					break;
-			case 'usedTechnologyClick':
-					_paq.push(['trackEvent', 'Used Technology Click', data.technology, undefined]);
-					break;
-			case 'anchorClick':
-					_paq.push(['trackEvent', 'Anchor Click', data.anchorName, undefined]);
-					break;
-			case 'portraitClick':
-					// consoleQuest step 4
-					if (data.portraitPerson == "Lukáš Čech"){
-							_paq.push(['setCustomDimension', 1, "Poklad získá ten, kdo hrdě a beze strachu, nahlas pronese pradávná slova moci 'consoleQuest.treasure()'"]);
-					};
-					_paq.push(['trackEvent', 'Portrait Click', data.portraitPerson, undefined]);
-					break;
-			default:
-					measure.notify ('No instructions for Matomo with action: "' + data.action + '"');
-	};
 };
 
 
@@ -153,8 +90,17 @@ consoleQuest = function (step) {
 	// consoleQuest step 2
 	if (window.location.pathname=="/"&& step==undefined) {dataLayer.push({quest:consoleQuestTexts[1]})};
 	// consoleQuest step 3 - in measure.notify
-	// consoleQuest step 4 - in measure.matomo
+	// consoleQuest step 4 - in consoleQuest.matomo
 	// consoleQuest step 5 - in consoleQuest.treasure
+}
+
+// consoleQuest step 4 - fake Matomo hit
+consoleQuest.matomo = function (data) {
+	if (data.action == "portraitClick" && data.portraitPerson == "Lukáš Čech") {
+		var img = document.createElement("img");
+		img.src = "https://matomo.activate.cz/matomo.php?e_c=Portrait%20Click&e_a=Luk%C3%A1%C5%A1%20%C4%8Cech&idsite=6&rec=1&r=821257&h=11&m=51&s=21&url=https%3A%2F%2Factivate.cz%2F&_id=872f16b1be511eee&_idts=1614523591&_idvc=8&_idn=0&send_image=1&pdf=1&qt=0&realp=0&wma=0&dir=0&fla=0&java=0&gears=0&ag=0&cookie=1&res=1920x1200&dimension1=Poklad%20z%C3%ADsk%C3%A1%20ten%2C%20kdo%20hrd%C4%9B%20a%20beze%20strachu%2C%20nahlas%20pronese%20prad%C3%A1vn%C3%A1%20slova%20moci%20%27consoleQuest.treasure()%27&gt_ms=21&pv_id=RkDzPr";
+		document.body.appendChild(img);
+	}
 }
 
 // Notification to console
