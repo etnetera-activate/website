@@ -156,11 +156,11 @@ h3 {
     font-family: 'Caveat', cursive;
 }
 .menu-comment {
+    font-family: 'Caveat', monospace;
     color: #8d8d8d;
     text-decoration: none;
-    text-transform: uppercase;
     display: block;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 28px;
     font-weight: 700;
 }
