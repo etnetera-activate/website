@@ -571,7 +571,6 @@ h1.arrows-left-right-down::after {
     text-decoration: none;
     color: #8d8d8d;
     font-size: 14px;
-    display: block;
 }
 .social-icon:hover span {
     color: #009fe3;

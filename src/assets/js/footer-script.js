@@ -3,14 +3,29 @@
 // 	Piwik.HeatmapSessionRecording.disable();
 // };
 
-function hideCookieCategory(){
+function hideCookieCategory() {
   var style = document.createElement("style");
   style.setAttribute("id", "cookiebotCategoryHidingStyle");
-  style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important}";
+  if (cookiebotMediaQuery.matches) {
+    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+  } else {
+    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+  }
   document.head.appendChild(style);
 }
 
+function adjustCookieCategoryWidth(cookiebotMediaQuery) {
+  var style = document.getElementById("cookiebotCategoryHidingStyle");
+  if (cookiebotMediaQuery.matches) {
+    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+  } else {
+    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+  }
+}
+
+var cookiebotMediaQuery = window.matchMedia("(max-width: 576px)");
 hideCookieCategory();
+cookiebotMediaQuery.addListener(adjustCookieCategoryWidth);
 
 $(document).on("scroll", function () {
   if (document.body.offsetWidth > 991) {
@@ -145,11 +160,11 @@ let app = new Vue({
         encodeURIComponent(this.name);
       console.log(
         "Storing message " +
-          this.message +
-          " for " +
-          this.email +
-          " name: " +
-          this.name
+        this.message +
+        " for " +
+        this.email +
+        " name: " +
+        this.name
       );
       //console.log(url)
       measure({
