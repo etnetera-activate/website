@@ -1081,3 +1081,8 @@ address {
     }
 
 }
+
+div#CookiebotWidget {
+    right: 10px;
+    left: auto;
+}
