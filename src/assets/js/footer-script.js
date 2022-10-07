@@ -7,9 +7,9 @@ function hideCookieCategory() {
   var style = document.createElement("style");
   style.setAttribute("id", "cookiebotCategoryHidingStyle");
   if (cookiebotMediaQuery.matches) {
-    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+    style.innerHTML = "#CybotCookiebotDialogBodyFieldsetInnerContainer > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
   } else {
-    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+    style.innerHTML = "#CybotCookiebotDialogBodyFieldsetInnerContainer > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
   }
   document.head.appendChild(style);
 }
@@ -17,9 +17,9 @@ function hideCookieCategory() {
 function adjustCookieCategoryWidth(cookiebotMediaQuery) {
   var style = document.getElementById("cookiebotCategoryHidingStyle");
   if (cookiebotMediaQuery.matches) {
-    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+    style.innerHTML = "#CybotCookiebotDialogBodyFieldsetInnerContainer > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
   } else {
-    style.innerHTML = "fieldset > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
+    style.innerHTML = "#CybotCookiebotDialogBodyFieldsetInnerContainer > div:nth-of-type(2) {display: none !important} div.CybotCookiebotDialogBodyLevelButtonWrapper {width: 33% !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(2) {display: none !important} div#CybotCookiebotDialogDetailBodyContentCookieContainerTypes > div:nth-of-type(5) {display: none !important}";
   }
 }
 
