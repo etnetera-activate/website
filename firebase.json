@@ -8,6 +8,11 @@
     ],
     "redirects":[
       {
+        "source": "/vajecnak",
+        "destination": "/vajecnak/",
+        "type": 301
+      },
+      {
         "source": "/nas-tym/",
         "destination": "/#nas-tym",
         "type": 301
